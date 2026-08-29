@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "title": "A2D Storybook",
+    "tagline": "Events & story texts",
+    "language": "de"
+  },
+  "chapters": [
+    { "id": "prologue", "title": "Prolog" },
+    { "id": "act-1", "title": "Akt I" }
+  ],
+  "types": [
+    { "id": "story", "label": "Geschichte" },
+    { "id": "event", "label": "Ereignis" },
+    { "id": "rumor", "label": "Gerücht" },
+    { "id": "flavor", "label": "Flavor" }
+  ],
+  "events": [
+    {
+      "id": "sample-001",
+      "title": "Beispiel: Der erste Schritt",
+      "chapter": "prologue",
+      "type": "story",
+      "tags": ["beispiel", "einstieg"],
+      "summary": "Platzhaltertext — ersetze ihn mit deinen eigenen Texten.",
+      "body": "Dies ist ein Beispiel-Eintrag.\n\nÖffne content/events.json und ersetze diese Events mit deinen eigenen Geschichten und Ereigniskarten. Die Storybook-Oberfläche aktualisiert sich nach dem Speichern und Neuladen der Seite.\n\nAbsätze werden durch Leerzeilen getrennt."
+    },
+    {
+      "id": "sample-002",
+      "title": "Beispiel: Nebelschlucht",
+      "chapter": "act-1",
+      "type": "event",
+      "tags": ["beispiel", "reise"],
+      "summary": "Ein kurzes Ereignis als Vorlage für Spielkarten-Texte.",
+      "body": "Der Pfad endet abrupt. Unter euch liegt ein Meer aus Nebel — irgendwo darunter rauscht Wasser.\n\nIhr könnt den Abstieg wagen, einen Umweg suchen, oder jemanden vorausschicken."
+    },
+    {
+      "id": "sample-003",
+      "title": "Beispiel: Flüsterndes Gerücht",
+      "chapter": "act-1",
+      "type": "rumor",
+      "tags": ["beispiel", "stadt"],
+      "summary": "Kurzes Gerücht für Atmosphäre am Tisch.",
+      "body": "In der Taverne murmelt jemand: „Die Laternen am Osttor brennen neuerdings von allein — und nur in Nächten ohne Mond.“"
+    }
+  ]
+}
