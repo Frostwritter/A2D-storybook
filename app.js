@@ -31,6 +31,15 @@ function typeLabel(id) {
   return data.types.find((t) => t.id === id)?.label ?? id ?? "";
 }
 
+function listLabel(event) {
+  if (event.number != null) return String(event.number);
+  return event.title || event.id;
+}
+
+function pageHeading(event) {
+  return event.title || listLabel(event);
+}
+
 function paragraphs(text = "") {
   return String(text)
     .trim()
@@ -39,21 +48,59 @@ function paragraphs(text = "") {
     .filter(Boolean);
 }
 
+function appendParagraphs(parent, text) {
+  for (const textBlock of paragraphs(text)) {
+    const p = document.createElement("p");
+    p.textContent = textBlock;
+    parent.append(p);
+  }
+}
+
+function renderEffectStack(ongoing, once) {
+  const items = [
+    ...(ongoing || []).map((text) => ["ongoing", "Ongoing", text]),
+    ...(once || []).map((text) => ["once", "Once", text]),
+  ];
+  if (!items.length) return null;
+
+  const stack = document.createElement("div");
+  stack.className = "effect-stack";
+  for (const [kind, label, text] of items) {
+    const row = document.createElement("div");
+    row.className = `effect effect-${kind}`;
+    const tag = document.createElement("span");
+    tag.className = "effect-tag";
+    tag.textContent = label;
+    const body = document.createElement("span");
+    body.className = "effect-text";
+    body.textContent = text;
+    row.append(tag, body);
+    stack.append(row);
+  }
+  return stack;
+}
+
+function searchHay(event) {
+  if (event.spoilerFree) {
+    return [listLabel(event), chapterLabel(event.chapter)].join(" ").toLowerCase();
+  }
+  return [event.title, event.summary, event.body, listLabel(event), ...(event.tags || [])]
+    .join(" ")
+    .toLowerCase();
+}
+
 function filteredEvents() {
   const q = els.search.value.trim().toLowerCase();
   return data.events.filter((event) => {
     if (activeType !== "all" && event.type !== activeType) return false;
     if (!q) return true;
-    const hay = [event.title, event.summary, event.body, ...(event.tags || [])]
-      .join(" ")
-      .toLowerCase();
-    return hay.includes(q);
+    return searchHay(event).includes(q);
   });
 }
 
 function renderFilters() {
   const chips = [
-    { id: "all", label: "Alle" },
+    { id: "all", label: "All" },
     ...data.types.map((t) => ({ id: t.id, label: t.label })),
   ];
 
@@ -74,30 +121,93 @@ function renderFilters() {
   );
 }
 
+function renderChoice(choice) {
+  const details = document.createElement("details");
+  details.className = "choice";
+
+  const summary = document.createElement("summary");
+  const label = document.createElement("span");
+  label.className = "choice-label";
+  label.textContent = choice.label;
+  summary.append(label);
+
+  if (choice.requires) {
+    const req = document.createElement("span");
+    req.className = "choice-requires";
+    const word = document.createElement("span");
+    word.className = "requires-word";
+    word.textContent = "Requires";
+    const key = document.createElement("span");
+    key.className = "requires-key";
+    key.textContent = choice.requires;
+    req.append(word, key);
+    summary.append(req);
+  }
+  if (choice.note) {
+    const note = document.createElement("span");
+    note.className = "choice-note";
+    note.textContent = choice.note;
+    summary.append(note);
+  }
+
+  const panel = document.createElement("div");
+  panel.className = "choice-panel";
+  appendParagraphs(panel, choice.body);
+  const effects = renderEffectStack(choice.ongoing, choice.once);
+  if (effects) panel.append(effects);
+  if (choice.choices?.length) {
+    panel.append(renderChoiceList(choice.choices));
+  }
+
+  details.append(summary, panel);
+  return details;
+}
+
+function renderChoiceList(choices) {
+  const list = document.createElement("div");
+  list.className = "choice-list";
+  list.append(...choices.map(renderChoice));
+  return list;
+}
+
 function renderList() {
   const events = filteredEvents();
-  els.list.replaceChildren(
-    ...events.map((event) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "event-item";
-      btn.setAttribute("aria-current", String(event.id === activeId));
+  const nodes = [];
+  let lastChapter = null;
 
-      const title = document.createElement("span");
-      title.className = "item-title";
-      title.textContent = event.title;
+  for (const event of events) {
+    if (event.chapter !== lastChapter) {
+      lastChapter = event.chapter;
+      const heading = document.createElement("p");
+      heading.className = "list-chapter";
+      heading.textContent = chapterLabel(event.chapter);
+      nodes.push(heading);
+    }
 
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = event.spoilerFree ? "event-item numbered" : "event-item";
+    btn.setAttribute("aria-current", String(event.id === activeId));
+
+    const title = document.createElement("span");
+    title.className = "item-title";
+    title.textContent = listLabel(event);
+    btn.append(title);
+
+    if (!event.spoilerFree) {
       const meta = document.createElement("span");
       meta.className = "item-meta";
       meta.textContent = [typeLabel(event.type), chapterLabel(event.chapter)]
         .filter(Boolean)
         .join(" · ");
+      btn.append(meta);
+    }
 
-      btn.append(title, meta);
-      btn.addEventListener("click", () => selectEvent(event.id, true));
-      return btn;
-    })
-  );
+    btn.addEventListener("click", () => selectEvent(event.id, true));
+    nodes.push(btn);
+  }
+
+  els.list.replaceChildren(...nodes);
 
   if (activeId && !events.some((e) => e.id === activeId)) {
     showEmpty();
@@ -129,7 +239,7 @@ function selectEvent(id, pushHash = false) {
   els.pageMeta.textContent = [typeLabel(event.type), chapterLabel(event.chapter)]
     .filter(Boolean)
     .join(" · ");
-  els.pageTitle.textContent = event.title;
+  els.pageTitle.textContent = pageHeading(event);
   els.pageSummary.textContent = event.summary || "";
   els.pageSummary.hidden = !event.summary;
 
@@ -140,14 +250,16 @@ function selectEvent(id, pushHash = false) {
       return li;
     })
   );
+  els.pageTags.hidden = !event.tags?.length;
 
-  els.pageBody.replaceChildren(
-    ...paragraphs(event.body).map((text) => {
-      const p = document.createElement("p");
-      p.textContent = text;
-      return p;
-    })
-  );
+  els.pageBody.replaceChildren();
+  appendParagraphs(els.pageBody, event.body);
+  const pageEffects = renderEffectStack(event.ongoing, event.once);
+  if (pageEffects) els.pageBody.append(pageEffects);
+  if (event.choices?.length) {
+    els.pageBody.append(renderChoiceList(event.choices));
+  }
+  els.pageBody.hidden = els.pageBody.childElementCount === 0;
 
   const visible = filteredEvents();
   const index = visible.findIndex((e) => e.id === id);
@@ -174,7 +286,7 @@ function applyHash() {
 
 async function boot() {
   const res = await fetch(DATA_URL);
-  if (!res.ok) throw new Error(`Konnte content/events.json nicht laden (${res.status})`);
+  if (!res.ok) throw new Error(`Could not load content/events.json (${res.status})`);
   data = await res.json();
 
   const title = data.meta?.title || "Storybook";
@@ -211,6 +323,6 @@ window.addEventListener("keydown", (e) => {
 boot().catch((err) => {
   els.empty.hidden = false;
   els.page.hidden = true;
-  els.empty.innerHTML = `<h1>Inhalt fehlt</h1><p>${err.message}</p>`;
+  els.empty.innerHTML = `<h1>Content missing</h1><p>${err.message}</p>`;
   console.error(err);
 });

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,18 +20,18 @@
       </header>
 
       <label class="search">
-        <span class="sr-only">Suchen</span>
-        <input type="search" id="search" placeholder="Suchen…" autocomplete="off" />
+        <span class="sr-only">Search</span>
+        <input type="search" id="search" placeholder="Search…" autocomplete="off" />
       </label>
 
       <div class="filters" id="filters"></div>
 
-      <nav class="event-list" id="event-list" aria-label="Ereignisse"></nav>
+      <nav class="event-list" id="event-list" aria-label="Events"></nav>
     </aside>
 
     <main class="reader" id="reader">
       <button type="button" class="menu-toggle" id="menu-toggle" aria-controls="rail" aria-expanded="false">
-        Inhaltsverzeichnis
+        Contents
       </button>
 
       <article class="page" id="page" hidden>
@@ -43,14 +43,14 @@
         </header>
         <div class="page-body" id="page-body"></div>
         <footer class="page-nav">
-          <button type="button" class="nav-btn" id="prev-btn">← Vorheriges</button>
-          <button type="button" class="nav-btn" id="next-btn">Nächstes →</button>
+          <button type="button" class="nav-btn" id="prev-btn">← Previous</button>
+          <button type="button" class="nav-btn" id="next-btn">Next →</button>
         </footer>
       </article>
 
       <div class="empty" id="empty">
-        <h1>Wähle einen Eintrag</h1>
-        <p>Links findest du Events und Story-Texte. Du kannst sie in <code>content/events.json</code> pflegen.</p>
+        <h1>Choose an entry</h1>
+        <p>Events and story texts are listed on the left. Edit them in <code>content/events.json</code>.</p>
       </div>
     </main>
   </div>
