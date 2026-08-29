@@ -15,6 +15,7 @@ const els = {
   pageBody: document.getElementById("page-body"),
   prevBtn: document.getElementById("prev-btn"),
   nextBtn: document.getElementById("next-btn"),
+  pageNav: document.getElementById("page-nav"),
   menuToggle: document.getElementById("menu-toggle"),
 };
 
@@ -22,6 +23,8 @@ const els = {
 let data = { meta: {}, chapters: [], types: [], events: [] };
 let activeType = "all";
 let activeId = null;
+let activeChapterId = null;
+let showingChapter = false;
 
 function chapterLabel(id) {
   return data.chapters.find((c) => c.id === id)?.title ?? id ?? "";
@@ -170,6 +173,17 @@ function renderChoiceList(choices) {
   return list;
 }
 
+function setHash(id, pushHash) {
+  const hash = `#${encodeURIComponent(id)}`;
+  if (pushHash) history.pushState(null, "", hash);
+  else history.replaceState(null, "", hash);
+}
+
+function closeRail() {
+  document.body.classList.remove("rail-open");
+  els.menuToggle.setAttribute("aria-expanded", "false");
+}
+
 function renderList() {
   const events = filteredEvents();
   const nodes = [];
@@ -178,9 +192,15 @@ function renderList() {
   for (const event of events) {
     if (event.chapter !== lastChapter) {
       lastChapter = event.chapter;
-      const heading = document.createElement("p");
+      const heading = document.createElement("button");
+      heading.type = "button";
       heading.className = "list-chapter";
       heading.textContent = chapterLabel(event.chapter);
+      heading.setAttribute(
+        "aria-current",
+        String(showingChapter && activeChapterId === event.chapter)
+      );
+      heading.addEventListener("click", () => selectChapter(event.chapter, true));
       nodes.push(heading);
     }
 
@@ -216,9 +236,64 @@ function renderList() {
 
 function showEmpty() {
   activeId = null;
+  activeChapterId = null;
+  showingChapter = false;
   els.page.hidden = true;
   els.empty.hidden = false;
   history.replaceState(null, "", location.pathname + location.search);
+  renderList();
+}
+
+function selectChapter(chapterId, pushHash = false) {
+  const chapter = data.chapters.find((c) => c.id === chapterId);
+  if (!chapter) {
+    showEmpty();
+    return;
+  }
+
+  showingChapter = true;
+  activeChapterId = chapterId;
+  activeId = null;
+  closeRail();
+
+  els.empty.hidden = true;
+  els.page.hidden = false;
+  els.pageNav.hidden = true;
+
+  els.pageMeta.textContent = "Chapter";
+  els.pageMeta.hidden = false;
+  els.pageTitle.textContent = chapter.title;
+  els.pageSummary.textContent = chapter.summary || "";
+  els.pageSummary.hidden = !chapter.summary;
+
+  els.pageTags.replaceChildren();
+  els.pageTags.hidden = true;
+
+  const grid = document.createElement("div");
+  grid.className = "entry-grid";
+  const events = data.events.filter((event) => event.chapter === chapterId);
+  for (const event of events) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = event.spoilerFree ? "entry-tile numbered" : "entry-tile";
+    const label = document.createElement("span");
+    label.className = "entry-tile-label";
+    label.textContent = listLabel(event);
+    btn.append(label);
+    if (!event.spoilerFree) {
+      const meta = document.createElement("span");
+      meta.className = "entry-tile-meta";
+      meta.textContent = event.title || "";
+      btn.append(meta);
+    }
+    btn.addEventListener("click", () => selectEvent(event.id, true));
+    grid.append(btn);
+  }
+
+  els.pageBody.replaceChildren(grid);
+  els.pageBody.hidden = events.length === 0;
+
+  setHash(chapterId, pushHash);
   renderList();
 }
 
@@ -229,16 +304,27 @@ function selectEvent(id, pushHash = false) {
     return;
   }
 
+  showingChapter = false;
   activeId = id;
-  document.body.classList.remove("rail-open");
-  els.menuToggle.setAttribute("aria-expanded", "false");
+  activeChapterId = event.chapter;
+  closeRail();
 
   els.empty.hidden = true;
   els.page.hidden = false;
+  els.pageNav.hidden = false;
 
-  els.pageMeta.textContent = [typeLabel(event.type), chapterLabel(event.chapter)]
-    .filter(Boolean)
-    .join(" · ");
+  els.pageMeta.hidden = false;
+  els.pageMeta.replaceChildren();
+  const typeEl = document.createElement("span");
+  typeEl.textContent = typeLabel(event.type);
+  const sep = document.createTextNode(" · ");
+  const chapterBtn = document.createElement("button");
+  chapterBtn.type = "button";
+  chapterBtn.className = "chapter-link";
+  chapterBtn.textContent = chapterLabel(event.chapter);
+  chapterBtn.addEventListener("click", () => selectChapter(event.chapter, true));
+  els.pageMeta.append(typeEl, sep, chapterBtn);
+
   els.pageTitle.textContent = pageHeading(event);
   els.pageSummary.textContent = event.summary || "";
   els.pageSummary.hidden = !event.summary;
@@ -269,19 +355,22 @@ function selectEvent(id, pushHash = false) {
   els.nextBtn.onclick = () =>
     index >= 0 && index < visible.length - 1 && selectEvent(visible[index + 1].id, true);
 
-  if (pushHash) {
-    history.pushState(null, "", `#${encodeURIComponent(id)}`);
-  } else {
-    history.replaceState(null, "", `#${encodeURIComponent(id)}`);
-  }
-
+  setHash(id, pushHash);
   renderList();
 }
 
 function applyHash() {
   const id = decodeURIComponent(location.hash.replace(/^#/, ""));
-  if (id) selectEvent(id, false);
-  else showEmpty();
+  if (!id) {
+    if (data.chapters[0]) selectChapter(data.chapters[0].id, false);
+    else showEmpty();
+    return;
+  }
+  if (data.chapters.some((chapter) => chapter.id === id)) {
+    selectChapter(id, false);
+    return;
+  }
+  selectEvent(id, false);
 }
 
 async function boot() {
@@ -297,10 +386,6 @@ async function boot() {
   renderFilters();
   renderList();
   applyHash();
-
-  if (!location.hash && data.events[0]) {
-    selectEvent(data.events[0].id, false);
-  }
 }
 
 els.search.addEventListener("input", () => {
@@ -316,6 +401,7 @@ window.addEventListener("hashchange", applyHash);
 
 window.addEventListener("keydown", (e) => {
   if (e.target.matches("input, textarea")) return;
+  if (showingChapter) return;
   if (e.key === "ArrowLeft") els.prevBtn.click();
   if (e.key === "ArrowRight") els.nextBtn.click();
 });

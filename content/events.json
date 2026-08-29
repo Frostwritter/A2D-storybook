@@ -5,7 +5,7 @@
     "language": "en"
   },
   "chapters": [
-    { "id": "the-thicket", "title": "The Thicket" }
+    { "id": "the-thicket", "title": "The Thicket", "summary": "A dense stretch of thorn and old stone." }
   ],
   "types": [
     { "id": "story", "label": "Story" },
