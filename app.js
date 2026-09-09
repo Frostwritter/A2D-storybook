@@ -59,6 +59,25 @@ function appendParagraphs(parent, text) {
   }
 }
 
+function renderInfo(text) {
+  if (!text) return null;
+
+  const info = document.createElement("aside");
+  info.className = "info-box";
+  info.setAttribute("role", "note");
+
+  const label = document.createElement("span");
+  label.className = "info-label";
+  label.textContent = "Info";
+
+  const body = document.createElement("span");
+  body.className = "info-text";
+  body.textContent = text;
+
+  info.append(label, body);
+  return info;
+}
+
 function renderEffectStack(ongoing, once) {
   const items = [
     ...(ongoing || []).map((text) => ["ongoing", "Ongoing", text]),
@@ -156,6 +175,8 @@ function renderChoice(choice) {
   const panel = document.createElement("div");
   panel.className = "choice-panel";
   appendParagraphs(panel, choice.body);
+  const info = renderInfo(choice.info);
+  if (info) panel.append(info);
   const effects = renderEffectStack(choice.ongoing, choice.once);
   if (effects) panel.append(effects);
   if (choice.choices?.length) {
@@ -340,6 +361,8 @@ function selectEvent(id, pushHash = false) {
 
   els.pageBody.replaceChildren();
   appendParagraphs(els.pageBody, event.body);
+  const info = renderInfo(event.info);
+  if (info) els.pageBody.append(info);
   const pageEffects = renderEffectStack(event.ongoing, event.once);
   if (pageEffects) els.pageBody.append(pageEffects);
   if (event.choices?.length) {

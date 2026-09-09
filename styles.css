@@ -404,6 +404,34 @@ body {
   margin-bottom: 0;
 }
 
+.info-box {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin: 1.15rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(31, 107, 92, 0.2);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 0.35rem 0.35rem 0;
+  background: rgba(197, 224, 216, 0.42);
+  font-family: var(--font-ui);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.info-label {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.info-text {
+  color: var(--ink-soft);
+}
+
 .entry-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(4.6rem, 1fr));

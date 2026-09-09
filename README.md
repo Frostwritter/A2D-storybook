@@ -36,9 +36,10 @@ Fields per event:
 | `tags` | Freeform keywords |
 | `summary` | Optional short text under the title |
 | `body` | Body copy; separate paragraphs with a blank line |
+| `info` | Optional short highlighted note shown in an info box |
 | `choices` | Optional unfoldable options (nested `choices` allowed) |
 
-A choice: `label`, optional `note` / `requires`, `body`, optional nested `choices`.
+A choice: `label`, optional `note` / `requires` / `info`, `body`, optional nested `choices`.
 
 Outcomes on a page or choice:
 
