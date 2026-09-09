@@ -41,15 +41,12 @@
       "choices": [
         {
           "label": "Search the main halls",
-          "note": "Costs 1h",
           "body": "The main halls are emptier than you expected. The pews are gone and the altars are bare. At the far end, a single torch still seems to burn, somehow.",
           "once": ["Gain a Torch."]
         },
         {
           "label": "Take the stairs into the crypt",
-          "note": "Costs 1h",
           "body": "The crypt is a shorter trip than you expected. After a few turns of the stair, a great stone door stops you. It is locked.\n\nBeside the door, a socket is cut into the stone — just the size of a tablet, or of some key from a forgotten age. Whether such a thing still exists is another question.",
-          "once": ["Regain 1h."],
           "choices": [
             {
               "label": "Set the tablet into the socket",
@@ -73,16 +70,16 @@
       "choices": [
         {
           "label": "Search the wood for usable timber",
-          "note": "Costs 2h",
+          "note": "Lose 1h",
           "body": "You spend some time looking for wood that will actually be of use. There is enough of it here, if you are willing to cut and carry.",
           "info": "Materials can be used to upgrade your camp. In this demo, just treat them as quite valuable.",
           "once": ["Gain 5 Material."]
         },
         {
           "label": "Go hunting",
-          "note": "Costs 2h",
+          "note": "Lose 1h",
           "body": "You follow the signs as best you can. It takes patience, but you come back with a pelt and a steak.",
-          "once": ["Gain a Pelt and a Steak."]
+          "once": ["Gain a Pelt and a Steak item."]
         }
       ]
     },
@@ -97,7 +94,7 @@
       "choices": [
         {
           "label": "Search the ruins",
-          "note": "Costs 1h",
+          "note": "Lose 1h",
           "body": "After some searching, you find an old stone tablet under a fallen slab. It looks very, very old.",
           "once": ["Gain the Ancient Tablet."]
         }
