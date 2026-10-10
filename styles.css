@@ -9,7 +9,7 @@
   --accent-soft: #c5e0d8;
   --glow: rgba(31, 107, 92, 0.35);
   --shadow: 0 24px 60px rgba(8, 18, 14, 0.45);
-  --rail-w: 21rem;
+  --rail-w: 17.5rem;
   --font-display: "Fraunces", Georgia, serif;
   --font-body: "Source Serif 4", Georgia, serif;
   --font-ui: "IBM Plex Sans", system-ui, sans-serif;
@@ -125,25 +125,34 @@ body {
   outline-offset: 1px;
 }
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+.section-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
 }
 
-.filter-chip {
+.section-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
   border: 1px solid rgba(215, 224, 218, 0.18);
   background: transparent;
   color: var(--fog);
-  border-radius: 999px;
-  padding: 0.28rem 0.65rem;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.45rem;
   font: inherit;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.78rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
-.filter-chip[aria-pressed="true"] {
+.section-tab-emoji {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.section-tab[aria-selected="true"] {
   background: var(--accent-soft);
   border-color: transparent;
   color: var(--ink);
@@ -404,6 +413,80 @@ body {
   margin-bottom: 0;
 }
 
+.story-image {
+  margin: 0 0 1.25rem;
+}
+
+.story-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+  background: rgba(31, 107, 92, 0.08);
+}
+
+.story-image figcaption {
+  margin-top: 0.45rem;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.choice-panel > .story-image {
+  margin: 0.85rem 0 0;
+}
+
+.icon {
+  display: inline-block;
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  object-fit: contain;
+}
+
+.icon-inline {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+}
+
+.item-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin: 0 0.12em;
+  padding: 0.12em 0.48em 0.12em 0.36em;
+  border: 1px solid #8b7355;
+  border-radius: 0.15rem;
+  background:
+    linear-gradient(165deg, #f4e7c8 0%, #e8d4a8 48%, #dcc496 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 248, 230, 0.65),
+    inset 0 -1px 0 rgba(120, 90, 50, 0.12);
+  font-family: var(--font-body);
+  font-size: 0.9em;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 0.01em;
+  color: #3a2a18;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.item-glyph {
+  flex: 0 0 auto;
+  font-size: 0.72em;
+  line-height: 1;
+  color: #7a5c38;
+  opacity: 0.9;
+}
+
+.item-chip .icon {
+  width: 1.05em;
+  height: 1.05em;
+}
+
 .info-box {
   display: flex;
   align-items: baseline;
@@ -542,14 +625,8 @@ body {
   color: var(--ink-soft);
 }
 
-.requires-key {
+.choice-requires .item-chip {
   font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: var(--accent);
-  background: var(--accent-soft);
-  border-radius: 999px;
-  padding: 0.12rem 0.5rem;
 }
 
 .choice-panel {
@@ -597,13 +674,15 @@ body {
 }
 
 .effect-ongoing {
-  background: rgba(31, 107, 92, 0.08);
-  border-left: 3px solid var(--accent);
+  background: rgba(196, 140, 48, 0.16);
+  border: 1px solid rgba(160, 100, 28, 0.28);
+  border-left: 3px solid #b8721a;
   border-radius: 0 0.3rem 0.3rem 0;
+  box-shadow: inset 0 1px 0 rgba(255, 236, 200, 0.45);
 }
 
 .effect-ongoing .effect-tag {
-  color: var(--accent);
+  color: #8a5210;
 }
 
 .effect-once {
@@ -616,8 +695,137 @@ body {
   color: var(--ink-soft);
 }
 
-.effect-once .effect-text {
-  font-style: italic;
+.effect-repeatable {
+  border: 1px dashed var(--paper-edge);
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.effect-repeatable .effect-tag {
+  color: var(--ink-soft);
+}
+
+.effect-verb {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.combat-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.combat-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.combat-tab {
+  border: 1px solid var(--paper-edge);
+  background: rgba(255, 255, 255, 0.35);
+  color: var(--ink-soft);
+  border-radius: 0.35rem;
+  padding: 0.55rem 0.7rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.combat-tab[aria-selected="true"] {
+  background: var(--accent-soft);
+  border-color: transparent;
+  color: var(--ink);
+}
+
+.combat-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.combat-panel > p {
+  margin: 0;
+}
+
+.setup-image-placeholder {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  border: 1px dashed #8b7355;
+  border-radius: 0.2rem;
+  background:
+    linear-gradient(165deg, rgba(244, 231, 200, 0.45), rgba(220, 196, 150, 0.35));
+  color: #7a5c38;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.combat-goal {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba(31, 107, 92, 0.25);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 0.35rem 0.35rem 0;
+  background: rgba(197, 224, 216, 0.35);
+  font-family: var(--font-ui);
+}
+
+.combat-goal-label {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.combat-goal-text {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.conclusion-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.conclusion-stack .info-box {
+  margin: 0;
+}
+
+.conclusion-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--paper-edge);
+  border-radius: 0.3rem;
+  background: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.conclusion-text {
+  display: inline;
+}
+
+.conclusion-empty {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-ui);
+  font-size: 0.9rem;
 }
 
 .page-nav {

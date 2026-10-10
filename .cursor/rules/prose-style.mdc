@@ -1,0 +1,11 @@
+---
+description: Flavour and story prose style for A2D content
+globs: content/**/*
+alwaysApply: true
+---
+
+# Prose style
+
+- Never use em dashes (—) or en dashes (–). Prefer commas, periods, colons, or rephrasing.
+- Avoid AI-typical short punchy sentence stacks. Prefer natural rhythm with varied sentence length.
+- Keep flavour understated; do not over-embellish.

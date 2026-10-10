@@ -1,18 +1,19 @@
 {
   "meta": {
-    "title": "A2D Storybook",
-    "tagline": "Events & story texts",
+    "title": "The Lost Chapter",
+    "tagline": "Events and Combats",
     "language": "en"
   },
   "chapters": [
     { "id": "the-thicket", "title": "The Thicket", "summary": "A dense stretch of thorn and old stone." }
   ],
-  "types": [
-    { "id": "story", "label": "Story" },
-    { "id": "event", "label": "Event" },
-    { "id": "rumor", "label": "Rumor" },
-    { "id": "flavor", "label": "Flavor" }
-  ],
+  "icons": {
+    "Energy": "assets/icons/energy_black.png",
+    "Card-1": "assets/icons/diamond-gray.png",
+    "Card-2": "assets/icons/diamond-blue.png",
+    "Card-3": "assets/icons/diamond-purple.png",
+    "dmg": "assets/icons/dmg_black.png"
+  },
   "events": [
     {
       "id": "thicket-fishing-point",
@@ -20,13 +21,12 @@
       "spoilerFree": true,
       "title": "The Fishing Point",
       "chapter": "the-thicket",
-      "type": "story",
-      "body": "You find a fishing point where big fish swim.",
+      "body": "A quiet stretch of water opens between the trees, where dark shapes move beneath the surface, big fish that seem slow and unafraid.",
       "choices": [
         {
           "label": "Go fishing",
-          "body": "The fish are biting a lot.",
-          "once": ["Gain the 'Energizing Eel' item."]
+          "body": "The line barely settles before something takes it, and after a short fight you pull an eel ashore, still twitching.",
+          "once": ["Gain item [Energizing Eel (1)]"]
         }
       ]
     },
@@ -36,24 +36,23 @@
       "spoilerFree": true,
       "title": "The Overgrown Chapel",
       "chapter": "the-thicket",
-      "type": "story",
-      "body": "The church stands abandoned in the thicket, vines on the walls and moss on the steps. It is empty, and it is still beautiful.",
+      "body": "The church stands abandoned in the thicket, vines on the walls and moss on the steps. Thorns climb the cracked facade, the roof sags under green, and the open doors show only shadow and silence inside.",
       "choices": [
         {
           "label": "Search the main halls",
-          "body": "The main halls are emptier than you expected. The pews are gone and the altars are bare. At the far end, a single torch still seems to burn, somehow.",
-          "once": ["Gain a Torch."]
+          "note": "Lose 1 :Energy:",
+          "body": "The main halls are emptier than you expected. The benches are gone and the altars are bare. At the far end, a single torch still seems to burn, somehow.",
+          "once": ["Gain item [Torch (2)]"]
         },
         {
           "label": "Take the stairs into the crypt",
-          "body": "The crypt is a shorter trip than you expected. After a few turns of the stair, a great stone door stops you. It is locked.\n\nBeside the door, a socket is cut into the stone — just the size of a tablet, or of some key from a forgotten age. Whether such a thing still exists is another question.",
+          "body": "After a few turns of the stair a great stone door stops you, locked tight.\n\nBeside the door, a socket is cut into the stone, just the size of a tablet or of some key from a forgotten age. Whether such a thing still exists is another question.",
           "choices": [
             {
               "label": "Set the tablet into the socket",
-              "requires": "Ancient Tablet",
-              "note": "Costs 1h",
-              "body": "You set the tablet into the socket. The door fights you, then gives, grinding open on its own — slow and unwilling.\n\nBeyond it is an armory. Even the monks had to defend themselves.",
-              "once": ["Gain Simple Boots, a Wooden Shield, and a Throwing Spear."]
+              "requires": "[Ancient Tablet (5)]",
+              "body": "You set the tablet into the socket. The door fights you, then gives, grinding open on its own, slow and unwilling.\n\nBeyond it is an armory, a reminder that even the monks had to defend themselves.",
+              "once": ["Gain items [Simple Boots (8)] [Wooden Shield (9)] [Throwing Spear (6)] [Chain Armor (12)]."]
             }
           ]
         }
@@ -65,21 +64,21 @@
       "spoilerFree": true,
       "title": "The Open Wood",
       "chapter": "the-thicket",
-      "type": "story",
       "body": "The wood here is a little easier going than the rest of the thicket, and far less tangled with brambles. In the distance, a deer slips between the trees and is gone.",
+      "info": "You cannot rest while exploring a POI. To regain :Energy:, leave the POI, take a rest action, then explore it again.",
       "choices": [
         {
           "label": "Search the wood for usable timber",
-          "note": "Lose 1h",
+          "note": "Lose 2 :Energy:",
           "body": "You spend some time looking for wood that will actually be of use. There is enough of it here, if you are willing to cut and carry.",
           "info": "Materials can be used to upgrade your camp. In this demo, just treat them as quite valuable.",
           "once": ["Gain 5 Material."]
         },
         {
           "label": "Go hunting",
-          "note": "Lose 1h",
-          "body": "You follow the signs as best you can. It takes patience, but you come back with a pelt and a steak.",
-          "once": ["Gain a Pelt and a Steak item."]
+          "note": "Lose 2 :Energy:",
+          "body": "You follow the signs as best you can. It takes patience, but you catch the dear after all.",
+          "once": ["Gain items [Food (3)] [Pelt (4)]"]
         }
       ]
     },
@@ -89,14 +88,13 @@
       "spoilerFree": true,
       "title": "The Temple Ruin",
       "chapter": "the-thicket",
-      "type": "story",
-      "body": "An abandoned ruin sits in the thicket. At first glance it is unremarkable — just a scatter of stone — but if you look longer, the shape of an old temple starts to come through. There might still be something left in the rubble.",
+      "body": "An abandoned ruin sits in the thicket. At first glance it is unremarkable, just a scatter of stone, but if you look longer the shape of an old temple starts to come through. There might still be something left in the rubble.",
       "choices": [
         {
           "label": "Search the ruins",
-          "note": "Lose 1h",
-          "body": "After some searching, you find an old stone tablet under a fallen slab. It looks very, very old.",
-          "once": ["Gain the Ancient Tablet."]
+          "note": "Lose 1 :Energy:",
+          "body": "After some searching you find an old stone tablet under a fallen slab. It looks very old.",
+          "once": ["Gain item [Ancient Tablet (5)]"]
         }
       ]
     },
@@ -106,53 +104,77 @@
       "spoilerFree": true,
       "title": "The Bramble Recess",
       "chapter": "the-thicket",
-      "type": "story",
-      "body": "The settlement sits in a recess in the mountains, reachable only by a narrow path. They used to close that path with a wall. The wall is still there, in pieces — the stone slumped and the gates long gone.\n\nWhat remains of the approach is completely overgrown. Thick brambles fill the path from side to side. There is no way in but through.",
+      "body": "The settlement sits in a recess in the mountains, reachable only by a narrow path. They used to close that path with a wall, and the wall is still there in pieces, the stone slumped and the gates long gone.\n\nWhat remains of the approach is completely overgrown. Thick brambles fill the path from side to side, and there is no way in except through them.",
       "choices": [
         {
           "label": "Fight your way through the brambles",
-          "note": "Each player loses 5 HP",
+          "note": "Each player takes :dmg: 5",
           "body": "You force your way through the thick brambles. It is exhausting, and you pick up more than a few scratches along the way.",
-          "once": ["Move to the other side of the brambles."]
+          "repeatable": ["Move to the other side of the brambles."]
         },
         {
-          "label": "These brambles look dry — easy to burn…",
-          "requires": "Fire",
-          "body": "You set the brambles alight. Heat rolls over the path, and the living wall collapses into ash and embers. When the fire dies, the way to the settlement stands wide open.\n\nYou reach the settlement and are greeted by distressed people. “The brambles — what happened to them? They were our only protection against the night demons. Our walls are really not up to date. We need to repair them as soon as we can. Do you know what happened? Could you maybe help us with the repairs?”",
+          "label": "These brambles look dry enough to burn…",
+          "requires": "[Torch]",
+          "body": "You set the brambles alight. Heat rolls over the path, and the living wall collapses into ash and embers. When the fire dies, the way to the settlement stands wide open.\n\nYou reach the settlement and are greeted by distressed people. “What happened to the brambles? They were our only protection against the terrors outside. Our walls are really not up to date. We need to repair them as soon as we can. Do you know what happened? Could you maybe help us with the repairs?”",
           "choices": [
             {
               "label": "Offer your help",
               "note": "Costs 5 Material",
-              "body": "Thanks to your help — and the materials you offered — the wall is repaired quite quickly. The settlement is safe again.",
-              "once": ["The way to the settlement is free: Place sticker X. Gain the 'Helper' achievement."]
+              "body": "Thanks to your help and the materials you offered, the wall is repaired quite quickly. The settlement is safe again.",
+              "once": ["The way to the settlement is free: Place sticker A. Gain the 'Helper' achievement."],
+              "info": "Achievements would track how the world remembers you and change future interactions. In this demo, they don't change anything."
             },
             {
               "label": "Pretend you know nothing",
-              "body": "They eye you with suspicion. “Sure… must be a coincidence, then. You can stay — but if you want a safe night, you’re going to need to hire some guards.”",
-              "ongoing": ["Resting in this settlement costs each character 3 gold."],
-              "once": ["The way to the settlement is free: Place sticker Y. Gain the 'Pyromaniac' achievement."]
+              "body": "They eye you with suspicion. “Sure… must be a coincidence, then. You can stay, but if you want a safe night, you’re going to need to hire some guards.”",
+              "ongoing": ["Visiting the inn in this settlement costs each character 5 gold."],
+              "once": ["The way to the settlement is free: Place sticker B. Gain the 'Pyromaniac' achievement."],
+              "info": "Achievements would track how the world remembers you and change future interactions. In this demo, they don't change anything."
             }
           ]
         }
       ]
+    }
+  ],
+  "combats": [
+    {
+      "id": "combat-i",
+      "label": "I",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-I.png",
+        "goal": "Kill all enemies."
+      },
+      "conclusion": [
+        "Gain 10 gold per character",
+        "Each character gains one of their :Card-2: cards and puts it on top of their deck"
+      ]
     },
     {
-      "id": "thicket-5",
-      "number": 6,
-      "spoilerFree": true,
-      "title": "",
-      "chapter": "the-thicket",
-      "type": "story",
-      "body": ""
+      "id": "combat-ii",
+      "label": "II",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-II.png",
+        "goal": "Kill all enemies."
+      },
+      "conclusion": [
+        "Gain 10 gold per character",
+        "Each character gains one of their :Card-2: cards and puts it on top of their deck"
+      ]
     },
     {
-      "id": "thicket-6",
-      "number": 7,
-      "spoilerFree": true,
-      "title": "",
-      "chapter": "the-thicket",
-      "type": "story",
-      "body": ""
+      "id": "combat-x",
+      "label": "X",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-X.png",
+        "goal": "Kill all enemies."
+      },
+      "conclusion": [
+        "The Heart of the Thicket, the corrupt forest spirit that had been poisoning the woods from within, finally falls. In the cracked core of the creature you find a pale root still green at the tips. As the corruption fades, the brambles across the region wither and pull back from the paths they once choked.",
+        { "info": "The Demo ends here. Otherwise, players would receive a unique item, even stronger cards and a new achievement. The story would continue from a new page of the map book with a 'liberated' Thicket." }
+      ]
     }
   ]
 }
