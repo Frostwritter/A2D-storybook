@@ -130,7 +130,7 @@ const SECTIONS = [
   { id: "combat", labelKey: "combats", emoji: "⚔️" },
 ];
 
-const POI_MARKERS = ["◆", "◇", "●", "▲", "✦", "✧"];
+const POI_MARKERS = ["◆", "◇", "●", "▲", "☘", "⌂"];
 
 const els = {
   brandTitle: document.getElementById("brand-title"),

@@ -164,8 +164,9 @@
       },
       "conclusion": [
         "Gain 10 gold per character",
-        "Each character gains one of their :Card-2: cards and puts it on top of their deck",
-        { "info": "At the end of combat, discard your hand. Do not reshuffle the discard pile or the shield pile; both stay as they are for the next combat." }
+        "Each character chooses one of their :Card-2: cards and puts it on top of their deck",
+        { "info": "At the end of combat, discard your hand. Do not reshuffle the discard pile or the shield pile; both stay as they are for the next combat." },
+        "Return to the map and continue with the exploration phase."
       ]
     },
     {
@@ -178,8 +179,9 @@
       },
       "conclusion": [
         "Gain 10 gold per character",
-        "Each character gains one of their :Card-2: cards and puts it on top of their deck",
-        { "info": "At the end of combat, discard your hand. Do not reshuffle the discard pile or the shield pile; both stay as they are for the next combat." }
+        "Each character chooses one of their :Card-2: cards and puts it on top of their deck",
+        { "info": "At the end of combat, discard your hand. Do not reshuffle the discard pile or the shield pile; both stay as they are for the next combat." },
+        "Return to the map and continue with the exploration phase."
       ]
     },
     {

@@ -170,10 +170,11 @@
       },
       "conclusion": [
         "Gagnez 10 pièces d'or par personnage",
-        "Chaque personnage obtient l'une de ses cartes :Card-2: et la place au sommet de son paquet",
+        "Chaque personnage choisit l'une de ses cartes :Card-2: et la place au sommet de son paquet",
         {
           "info": "À la fin du combat, défaussez votre main. Ne remélangez ni la défausse ni la pile de boucliers : toutes deux restent telles quelles pour le prochain combat."
-        }
+        },
+        "Retournez sur la carte et poursuivez la phase d'exploration."
       ]
     },
     {
@@ -186,10 +187,11 @@
       },
       "conclusion": [
         "Gagnez 10 pièces d'or par personnage",
-        "Chaque personnage gagne une de ses :Card-2: et la place au sommet de son paquet",
+        "Chaque personnage choisit l'une de ses cartes :Card-2: et la place au sommet de son paquet",
         {
           "info": "À la fin du combat, défaussez votre main. Ne mélangez ni la défausse ni la pile de boucliers. Les deux restent telles quelles pour le prochain combat."
-        }
+        },
+        "Retournez sur la carte et poursuivez la phase d'exploration."
       ]
     },
     {

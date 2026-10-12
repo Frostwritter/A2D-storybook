@@ -170,10 +170,11 @@
       },
       "conclusion": [
         "Erhalte 10 Gold pro Charakter",
-        "Jeder Charakter erhält eine seiner :Card-2:-Karten und legt sie oben auf seinen Stapel",
+        "Jeder Charakter wählt eine seiner :Card-2:-Karten aus und legt sie oben auf seinen Stapel",
         {
           "info": "Am Ende des Kampfes legst du deine Hand ab. Mische weder den Ablagestapel noch den Schildstapel neu. Beide bleiben für den nächsten Kampf unverändert."
-        }
+        },
+        "Kehre zur Karte zurück und fahre mit der Erkundungsphase fort."
       ]
     },
     {
@@ -186,10 +187,11 @@
       },
       "conclusion": [
         "Erhalte 10 Gold pro Charakter",
-        "Jeder Charakter erhält eine seiner :Card-2:-Karten und legt sie oben auf seinen Stapel",
+        "Jeder Charakter wählt eine seiner :Card-2:-Karten aus und legt sie oben auf seinen Stapel",
         {
           "info": "Am Ende des Kampfes legst du deine Hand ab. Mische weder den Ablagestapel noch den Schildstapel neu. Beide bleiben für den nächsten Kampf unverändert."
-        }
+        },
+        "Kehre zur Karte zurück und fahre mit der Erkundungsphase fort."
       ]
     },
     {

@@ -170,10 +170,11 @@
       },
       "conclusion": [
         "Ottieni 10 monete d'oro per personaggio",
-        "Ogni personaggio ottiene una delle proprie carte :Card-2: e la mette in cima al proprio mazzo",
+        "Ogni personaggio sceglie una delle proprie carte :Card-2: e la mette in cima al proprio mazzo",
         {
           "info": "Alla fine del combattimento, scarta la tua mano. Non rimescolare la pila degli scarti né quella degli scudi: entrambe restano così come sono per il prossimo combattimento."
-        }
+        },
+        "Torna sulla mappa e prosegui con la fase di esplorazione."
       ]
     },
     {
@@ -186,10 +187,11 @@
       },
       "conclusion": [
         "Ottieni 10 monete d'oro per personaggio",
-        "Ogni personaggio ottiene una delle proprie :Card-2: e la mette in cima al proprio mazzo",
+        "Ogni personaggio sceglie una delle proprie carte :Card-2: e la mette in cima al proprio mazzo",
         {
           "info": "Alla fine del combattimento, scarta la tua mano. Non rimescolare la pila degli scarti né quella degli scudi, entrambe restano così come sono per il prossimo combattimento."
-        }
+        },
+        "Torna sulla mappa e prosegui con la fase di esplorazione."
       ]
     },
     {
