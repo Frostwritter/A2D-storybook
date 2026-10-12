@@ -130,6 +130,8 @@ const SECTIONS = [
   { id: "combat", labelKey: "combats", emoji: "⚔️" },
 ];
 
+const POI_MARKERS = ["◆", "◇", "●", "▲", "✦", "✧"];
+
 const els = {
   brandTitle: document.getElementById("brand-title"),
   brandTagline: document.getElementById("brand-tagline"),
@@ -315,6 +317,10 @@ function chapterLabel(id) {
 }
 
 function listLabel(event) {
+  if (event.marker) return event.marker;
+  if (event.spoilerFree && event.number != null) {
+    return POI_MARKERS[event.number - 1] || "•";
+  }
   if (event.number != null) return String(event.number);
   return event.title || event.id;
 }
@@ -338,7 +344,7 @@ function paragraphs(text = "") {
 function appendParagraphs(parent, text) {
   for (const textBlock of paragraphs(text)) {
     const p = document.createElement("p");
-    p.textContent = textBlock;
+    appendMarkedText(p, textBlock, "paragraph-text");
     parent.append(p);
   }
 }
@@ -532,7 +538,7 @@ function renderList() {
     for (const combat of filteredCombats()) {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "event-item numbered";
+      btn.className = "event-item marked";
       btn.setAttribute("aria-current", String(combat.id === activeId && !showingChapter));
       const title = document.createElement("span");
       title.className = "item-title";
@@ -562,7 +568,7 @@ function renderList() {
 
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = event.spoilerFree ? "event-item numbered" : "event-item";
+      btn.className = event.spoilerFree ? "event-item marked" : "event-item";
       btn.setAttribute("aria-current", String(event.id === activeId && !showingChapter));
 
       const title = document.createElement("span");
@@ -647,7 +653,7 @@ function selectChapter(chapterId, pushHash = false) {
   for (const event of events) {
     const btn = document.createElement("button");
     btn.type = "button";
-    btn.className = event.spoilerFree ? "entry-tile numbered" : "entry-tile";
+    btn.className = event.spoilerFree ? "entry-tile marked" : "entry-tile";
     const label = document.createElement("span");
     label.className = "entry-tile-label";
     label.textContent = listLabel(event);

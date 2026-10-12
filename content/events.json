@@ -25,7 +25,7 @@
       "choices": [
         {
           "label": "Go fishing",
-          "body": "The line barely settles before something takes it, and after a short fight you pull an eel ashore, still twitching.",
+          "body": "The bait has barely touched the water when the line goes taut. After a short fight, you pull an eel ashore, still twitching.",
           "once": ["Gain item [Energizing Eel (1)]"]
         }
       ]
@@ -65,7 +65,6 @@
       "title": "The Open Wood",
       "chapter": "the-thicket",
       "body": "The wood here is a little easier going than the rest of the thicket, and far less tangled with thorn bushes. In the distance, a deer slips between the trees and is gone.",
-      "info": "You cannot rest while exploring a POI. To regain :Energy:, leave the POI, take a rest action, then explore it again.",
       "choices": [
         {
           "label": "Search the wood for usable timber",
@@ -80,7 +79,8 @@
           "body": "You follow the signs as best you can. It takes patience, but you finally bring the deer down.",
           "once": ["Gain items [Food (3)] [Pelt (4)]"]
         }
-      ]
+      ],
+      "info": "You cannot rest while exploring a POI. To regain :Energy:, leave the POI, take a rest action, then explore it again."
     },
     {
       "id": "thicket-3",
@@ -132,6 +132,23 @@
               "info": "Achievements would track how the world remembers you and change future interactions. In this demo, they don't change anything."
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "thicket-5",
+      "number": 6,
+      "spoilerFree": true,
+      "title": "The Settlement",
+      "chapter": "the-thicket",
+      "choices": [
+        {
+          "label": "Rest at the inn",
+          "body": "Each character may heal to full HP and remove Critical."
+        },
+        {
+          "label": "Buy and sell items",
+          "body": "You may buy the following items: [Food (3)] [Throwing Spear (6)] [Refreshing Drink (7)] [Simple Boots (8)] [Wooden Shield (9)] [Cleaving Axe (10)] [Slingshot (11)] [Chain Armor (12)] [Living Armor (13)]"
         }
       ]
     }

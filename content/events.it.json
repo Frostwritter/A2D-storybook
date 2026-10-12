@@ -31,7 +31,7 @@
       "choices": [
         {
           "label": "Andare a pescare",
-          "body": "Appena la lenza tocca l'acqua, qualcosa abbocca. Dopo una breve lotta, tiri a riva un'anguilla ancora guizzante.",
+          "body": "L'esca è appena in acqua quando la lenza si tende. Dopo una breve lotta, tiri a riva un'anguilla ancora guizzante.",
           "once": ["Ottieni l'oggetto [Energizing Eel (1)]"]
         }
       ]
@@ -71,7 +71,6 @@
       "title": "Il bosco aperto",
       "chapter": "the-thicket",
       "body": "Qui il bosco è più agevole da attraversare rispetto al resto della boscaglia, e i cespugli spinosi sono molto meno fitti. In lontananza, un cervo scivola tra gli alberi e scompare.",
-      "info": "In un POI non puoi riposare. Per recuperare :Energy:, lascia il POI, esegui un'azione di riposo e poi esploralo di nuovo.",
       "choices": [
         {
           "label": "Cercare legname utilizzabile",
@@ -86,7 +85,8 @@
           "body": "Segui le tracce come meglio puoi. Ci vuole pazienza, ma alla fine riesci ad abbattere il cervo.",
           "once": ["Ottieni gli oggetti [Food (3)] [Pelt (4)]"]
         }
-      ]
+      ],
+      "info": "In un POI non puoi riposare. Per recuperare :Energy:, lascia il POI, esegui un'azione di riposo e poi esploralo di nuovo."
     },
     {
       "id": "thicket-3",
@@ -138,6 +138,23 @@
               "info": "I traguardi servirebbero a mostrare come il mondo si ricorda di te e influenzerebbero gli incontri futuri. In questa demo non hanno altri effetti."
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "thicket-5",
+      "number": 6,
+      "spoilerFree": true,
+      "title": "L'insediamento",
+      "chapter": "the-thicket",
+      "choices": [
+        {
+          "label": "Riposarsi alla locanda",
+          "body": "Ogni personaggio può recuperare tutti gli HP e rimuovere Critical."
+        },
+        {
+          "label": "Comprare e vendere oggetti",
+          "body": "Puoi acquistare i seguenti oggetti: [Food (3)] [Throwing Spear (6)] [Refreshing Drink (7)] [Simple Boots (8)] [Wooden Shield (9)] [Cleaving Axe (10)] [Slingshot (11)] [Chain Armor (12)] [Living Armor (13)]"
         }
       ]
     }

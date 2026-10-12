@@ -273,11 +273,11 @@ body {
   text-transform: uppercase;
 }
 
-.event-item.numbered {
+.event-item.marked {
   padding: 0.45rem 0.75rem 0.45rem 1.7rem;
 }
 
-.event-item.numbered .item-title {
+.event-item.marked .item-title {
   font-family: var(--font-ui);
   font-size: 1.05rem;
   font-weight: 600;

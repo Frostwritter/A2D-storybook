@@ -31,7 +31,7 @@
       "choices": [
         {
           "label": "Angeln gehen",
-          "body": "Kaum hast du die Schnur ausgeworfen, beißt schon etwas an. Nach einem kurzen Kampf ziehst du einen noch zuckenden Aal ans Ufer.",
+          "body": "Kaum liegt der Köder im Wasser, spannt sich die Schnur. Nach einem kurzen Kampf ziehst du einen noch zuckenden Aal ans Ufer.",
           "once": ["Erhalte Gegenstand [Energizing Eel (1)]"]
         }
       ]
@@ -71,7 +71,6 @@
       "title": "Der offene Wald",
       "chapter": "the-thicket",
       "body": "Der Wald lässt sich hier leichter durchqueren als der Rest des Dickichts, und die Dornenbüsche stehen deutlich lichter. In der Ferne gleitet ein Reh zwischen den Bäumen hindurch und verschwindet.",
-      "info": "An einem POI kannst du dich nicht ausruhen. Um deine :Energy: zurückzugewinnen, verlasse den POI, führe eine Rastaktion aus und erkunde ihn danach erneut.",
       "choices": [
         {
           "label": "Den Wald nach brauchbarem Holz durchsuchen",
@@ -86,7 +85,8 @@
           "body": "Du folgst den Spuren so gut du kannst. Es braucht Geduld, aber schließlich gelingt es dir, das Reh zu erlegen.",
           "once": ["Erhalte Gegenstände [Food (3)] [Pelt (4)]"]
         }
-      ]
+      ],
+      "info": "An einem POI kannst du dich nicht ausruhen. Um deine :Energy: zurückzugewinnen, verlasse den POI, führe eine Rastaktion aus und erkunde ihn danach erneut."
     },
     {
       "id": "thicket-3",
@@ -138,6 +138,23 @@
               "info": "Erfolge würden dokumentieren, wie die Welt sich an dich erinnert, und künftige Begegnungen beeinflussen. In dieser Demo haben sie keinen weiteren Effekt."
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "thicket-5",
+      "number": 6,
+      "spoilerFree": true,
+      "title": "Die Siedlung",
+      "chapter": "the-thicket",
+      "choices": [
+        {
+          "label": "Im Gasthaus ausruhen",
+          "body": "Jeder Charakter darf seine HP vollständig heilen und Critical entfernen."
+        },
+        {
+          "label": "Gegenstände kaufen und verkaufen",
+          "body": "Du kannst die folgenden Gegenstände kaufen: [Food (3)] [Throwing Spear (6)] [Refreshing Drink (7)] [Simple Boots (8)] [Wooden Shield (9)] [Cleaving Axe (10)] [Slingshot (11)] [Chain Armor (12)] [Living Armor (13)]"
         }
       ]
     }

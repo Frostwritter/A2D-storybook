@@ -31,7 +31,7 @@
       "choices": [
         {
           "label": "Aller pêcher",
-          "body": "À peine la ligne touche-t-elle l'eau que quelque chose mord. Après un court combat, vous ramenez une anguille encore frémissante sur la berge.",
+          "body": "À peine l'appât touche-t-il l'eau que la ligne se tend. Après un court combat, vous ramenez une anguille encore frémissante sur la berge.",
           "once": ["Gagnez l'objet [Energizing Eel (1)]"]
         }
       ]
@@ -71,7 +71,6 @@
       "title": "Le bois ouvert",
       "chapter": "the-thicket",
       "body": "Le bois est ici un peu plus facile à traverser que le reste du fourré et bien moins envahi par les buissons épineux. Au loin, un cerf se glisse entre les arbres et disparaît.",
-      "info": "Vous ne pouvez pas vous reposer pendant l'exploration d'un POI. Pour récupérer votre :Energy:, quittez le POI, effectuez une action de repos, puis explorez-le à nouveau.",
       "choices": [
         {
           "label": "Chercher du bois utilisable",
@@ -86,7 +85,8 @@
           "body": "Vous suivez les traces du mieux que vous pouvez. Il faut de la patience, mais vous finissez par abattre le cerf.",
           "once": ["Gagnez les objets [Food (3)] [Pelt (4)]"]
         }
-      ]
+      ],
+      "info": "Vous ne pouvez pas vous reposer pendant l'exploration d'un POI. Pour récupérer votre :Energy:, quittez le POI, effectuez une action de repos, puis explorez-le à nouveau."
     },
     {
       "id": "thicket-3",
@@ -138,6 +138,23 @@
               "info": "Les succès serviraient à montrer comment le monde se souvient de vous et influenceraient les rencontres futures. Dans cette démo, ils n'ont aucun autre effet."
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": "thicket-5",
+      "number": 6,
+      "spoilerFree": true,
+      "title": "La colonie",
+      "chapter": "the-thicket",
+      "choices": [
+        {
+          "label": "Se reposer à l'auberge",
+          "body": "Chaque personnage peut récupérer tous ses HP et retirer Critical."
+        },
+        {
+          "label": "Acheter et vendre des objets",
+          "body": "Vous pouvez acheter les objets suivants : [Food (3)] [Throwing Spear (6)] [Refreshing Drink (7)] [Simple Boots (8)] [Wooden Shield (9)] [Cleaving Axe (10)] [Slingshot (11)] [Chain Armor (12)] [Living Armor (13)]"
         }
       ]
     }
