@@ -8,7 +8,7 @@
     {
       "id": "the-thicket",
       "title": "Das Dickicht",
-      "summary": "Ein dichter Abschnitt aus Dornen und altem Stein."
+      "summary": "Ein dicht bewachsener Landstrich zwischen Dornen und altem Stein."
     }
   ],
   "icons": {
@@ -27,11 +27,11 @@
       "spoilerFree": true,
       "title": "Die Angelstelle",
       "chapter": "the-thicket",
-      "body": "Zwischen den Bäumen öffnet sich ein stilles Stück Wasser. Unter der Oberfläche bewegen sich dunkle Formen, große Fische, die langsam und furchtlos wirken.",
+      "body": "Zwischen den Bäumen liegt ein stiller Wasserlauf frei. Unter der Oberfläche ziehen dunkle Schatten vorbei: große Fische, die langsam und arglos wirken.",
       "choices": [
         {
           "label": "Angeln gehen",
-          "body": "Die Schnur liegt kaum im Wasser, da beißt schon etwas an. Nach einem kurzen Kampf ziehst du einen noch zuckenden Aal ans Ufer.",
+          "body": "Kaum hast du die Schnur ausgeworfen, beißt schon etwas an. Nach einem kurzen Kampf ziehst du einen noch zuckenden Aal ans Ufer.",
           "once": ["Erhalte Gegenstand [Energizing Eel (1)]"]
         }
       ]
@@ -42,22 +42,22 @@
       "spoilerFree": true,
       "title": "Die überwucherte Kapelle",
       "chapter": "the-thicket",
-      "body": "Die Kirche steht verlassen im Dickicht. Weinranken bedecken die Wände und Moos wächst auf den Stufen. Dornen klettern an der rissigen Fassade empor, das Dach hängt unter dem Grün durch, und durch die offenen Türen dringen nur Schatten und Stille.",
+      "body": "Die Kirche steht verlassen im Dickicht. Weinranken bedecken die Wände und Moos wächst auf den Stufen. Dornen klettern an der rissigen Fassade empor, das Dach gibt unter der grünen Last nach, und durch die offenen Türen dringen nur Schatten und Stille.",
       "choices": [
         {
           "label": "Die Haupthallen durchsuchen",
           "note": "Verliere 1 :Energy:",
-          "body": "Die Haupthallen sind leerer, als du erwartet hast. Die Bänke sind verschwunden und die Altäre kahl. Am anderen Ende scheint noch eine einzelne Fackel zu brennen, irgendwie.",
+          "body": "Die Haupthallen sind leerer, als du erwartet hast. Die Bänke sind verschwunden und die Altäre kahl. Am anderen Ende scheint tatsächlich noch eine einzelne Fackel zu brennen.",
           "once": ["Erhalte Gegenstand [Torch (2)]"]
         },
         {
           "label": "Die Treppe zur Krypta hinabsteigen",
-          "body": "Nach einigen Windungen hält dich eine große Steintür auf, fest verschlossen.\n\nNeben der Tür ist eine Öffnung in den Stein geschnitten, gerade groß genug für eine Tafel oder einen Schlüssel aus längst vergessener Zeit. Ob so etwas noch existiert, ist eine andere Frage.",
+          "body": "Nach ein paar Windungen der Treppe versperrt dir eine große Steintür den Weg. Sie ist fest verschlossen.\n\nNeben der Tür wurde eine Öffnung in den Stein geschlagen, gerade groß genug für eine Tafel oder einen Schlüssel aus längst vergessener Zeit. Ob so etwas noch existiert, ist eine andere Frage.",
           "choices": [
             {
               "label": "Die Tafel in die Öffnung einsetzen",
               "requires": "[Ancient Tablet (5)]",
-              "body": "Du setzt die Tafel in die Öffnung. Die Tür wehrt sich, gibt dann aber nach und öffnet sich langsam und widerwillig von selbst.\n\nDahinter liegt eine Waffenkammer, eine Erinnerung daran, dass selbst die Mönche sich verteidigen mussten.",
+              "body": "Du setzt die Tafel in die Öffnung. Die Tür leistet Widerstand, gibt dann aber nach und öffnet sich langsam und widerwillig von selbst.\n\nDahinter verbirgt sich eine Waffenkammer, eine Erinnerung daran, dass selbst die Mönche sich verteidigen mussten.",
               "once": ["Erhalte Gegenstände [Simple Boots (8)] [Wooden Shield (9)] [Throwing Spear (6)] [Chain Armor (12)]."]
             }
           ]
@@ -70,20 +70,20 @@
       "spoilerFree": true,
       "title": "Der offene Wald",
       "chapter": "the-thicket",
-      "body": "Der Wald ist hier etwas leichter zu durchqueren als der Rest des Dickichts und viel weniger von Brombeeren überwuchert. In der Ferne verschwindet ein Reh zwischen den Bäumen.",
-      "info": "Während du einen POI erkundest, kannst du dich nicht ausruhen. Um :Energy: zurückzugewinnen, verlasse den POI, führe eine Rastaktion aus und erkunde ihn danach erneut.",
+      "body": "Der Wald lässt sich hier leichter durchqueren als der Rest des Dickichts, und die Dornenbüsche stehen deutlich lichter. In der Ferne gleitet ein Reh zwischen den Bäumen hindurch und verschwindet.",
+      "info": "An einem POI kannst du dich nicht ausruhen. Um deine :Energy: zurückzugewinnen, verlasse den POI, führe eine Rastaktion aus und erkunde ihn danach erneut.",
       "choices": [
         {
           "label": "Den Wald nach brauchbarem Holz durchsuchen",
           "note": "Verliere 2 :Energy:",
-          "body": "Du verbringst einige Zeit damit, Holz zu suchen, das tatsächlich brauchbar ist. Es gibt hier genug davon, wenn du bereit bist, es zu fällen und zu tragen.",
-          "info": "Materialien können verwendet werden, um dein Lager zu verbessern. In dieser Demo behandelst du sie einfach als sehr wertvoll.",
+          "body": "Du suchst eine Weile nach Holz, das sich wirklich verwenden lässt. Davon gibt es hier genug, wenn du bereit bist, es zu schlagen und abzutransportieren.",
+          "info": "Materialien können dein Lager verbessern. In dieser Demo kannst du einfach davon ausgehen, dass sie sehr wertvoll sind.",
           "once": ["Erhalte 5 Material."]
         },
         {
           "label": "Auf die Jagd gehen",
           "note": "Verliere 2 :Energy:",
-          "body": "Du folgst den Spuren so gut du kannst. Es braucht Geduld, aber schließlich erwischst du das Reh.",
+          "body": "Du folgst den Spuren so gut du kannst. Es braucht Geduld, aber schließlich gelingt es dir, das Reh zu erlegen.",
           "once": ["Erhalte Gegenstände [Food (3)] [Pelt (4)]"]
         }
       ]
@@ -94,12 +94,12 @@
       "spoilerFree": true,
       "title": "Die Tempelruine",
       "chapter": "the-thicket",
-      "body": "Im Dickicht liegt eine verlassene Ruine. Auf den ersten Blick ist sie unscheinbar, nur eine Ansammlung von Steinen. Wenn du länger hinsiehst, zeichnet sich jedoch die Form eines alten Tempels ab. Vielleicht liegt noch etwas im Geröll.",
+      "body": "Im Dickicht liegt eine verlassene Ruine. Auf den ersten Blick ist sie unscheinbar, nur verstreute Steine. Doch je länger du hinsiehst, desto deutlicher tritt die Form eines alten Tempels hervor. Vielleicht liegt noch etwas im Geröll.",
       "choices": [
         {
           "label": "Die Ruinen durchsuchen",
           "note": "Verliere 1 :Energy:",
-          "body": "Nach einiger Suche findest du eine alte Steintafel unter einer eingestürzten Platte. Sie sieht sehr alt aus.",
+          "body": "Nach einiger Suche entdeckst du unter einer eingestürzten Platte eine alte Steintafel. Sie muss sehr alt sein.",
           "once": ["Erhalte Gegenstand [Ancient Tablet (5)]"]
         }
       ]
@@ -108,34 +108,34 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "Die Dornensenke",
+      "title": "Die Senke voller Dornenbüsche",
       "chapter": "the-thicket",
-      "body": "Die Siedlung liegt in einer Senke zwischen den Bergen und ist nur über einen schmalen Pfad erreichbar. Früher versperrte eine Mauer den Weg. Teile davon stehen noch, der Stein ist eingesunken und die Tore sind längst verschwunden.\n\nDer verbliebene Zugang ist völlig überwuchert. Dichte Brombeeren versperren den Weg von einer Seite zur anderen. Es gibt keinen Weg hinein, außer durch sie hindurch.",
+      "body": "Die Siedlung liegt in einer Senke zwischen den Bergen und ist nur über einen schmalen Pfad erreichbar. Früher versperrte eine Mauer den Weg. Heute sind nur noch Teile davon erhalten: Viele Steine sind verrutscht, und die Tore sind längst verschwunden.\n\nDer verbliebene Zugang ist völlig überwuchert. Dichte Dornenbüsche versperren den Weg von einer Seite zur anderen. Es gibt keinen Weg hinein, außer durch sie hindurch.",
       "choices": [
         {
-          "label": "Sich durch die Brombeeren kämpfen",
+          "label": "Sich durch die Dornenbüsche kämpfen",
           "note": "Jeder Charakter nimmt :dmg: 5",
-          "body": "Du bahnst dir einen Weg durch die dichten Brombeeren. Es ist anstrengend, und dabei holst du dir mehr als ein paar Kratzer.",
-          "repeatable": ["Bewege dich auf die andere Seite der Brombeeren."]
+          "body": "Du kämpfst dich durch die dichten Dornenbüsche. Es ist anstrengend, und dabei holst du dir mehr als ein paar Kratzer.",
+          "repeatable": ["Bewege dich auf die andere Seite der Dornenbüsche."]
         },
         {
-          "label": "Diese Brombeeren sehen trocken genug aus, um sie zu verbrennen …",
+          "label": "Diese Dornenbüsche sehen trocken genug aus, um sie zu verbrennen …",
           "requires": "[Torch]",
-          "body": "Du entzündest die Brombeeren. Hitze rollt über den Weg, und die lebende Mauer fällt zu Asche und Glut zusammen. Als das Feuer erlischt, steht der Weg zur Siedlung weit offen.\n\nDu erreichst die Siedlung und wirst von aufgebrachten Menschen begrüßt. „Was ist mit den Brombeeren passiert? Sie waren unser einziger Schutz vor den Schrecken draußen. Unsere Mauern sind wirklich nicht mehr zeitgemäß. Wir müssen sie so bald wie möglich reparieren. Weißt du, was geschehen ist? Könntest du uns vielleicht bei den Reparaturen helfen?“",
+          "body": "Du setzt die Dornenbüsche in Brand. Die Hitze rollt über den Weg, und die lebende Mauer stürzt zu Asche und Glut zusammen. Als das Feuer erlischt, steht der Weg zur Siedlung weit offen.\n\nDu erreichst die Siedlung, wo dich aufgebrachte Menschen begrüßen. „Was ist mit den Dornenbüschen passiert? Sie waren unser einziger Schutz vor den Schrecken draußen. Unsere Mauern sind wirklich nicht mehr zeitgemäß. Wir müssen sie so bald wie möglich reparieren. Weißt du, was geschehen ist? Könntest du uns vielleicht bei den Reparaturen helfen?“",
           "choices": [
             {
               "label": "Deine Hilfe anbieten",
               "note": "Kostet 5 Material",
-              "body": "Dank deiner Hilfe und der Materialien, die du angeboten hast, ist die Mauer schnell repariert. Die Siedlung ist wieder sicher.",
+              "body": "Dank deiner Hilfe und der Materialien, die du bereitgestellt hast, ist die Mauer schnell repariert. Die Siedlung ist wieder sicher.",
               "once": ["Der Weg zur Siedlung ist frei: Platziere Aufkleber A. Erhalte den Erfolg „Helfer“."],
-              "info": "Erfolge würden festhalten, wie sich die Welt an dich erinnert, und zukünftige Begegnungen verändern. In dieser Demo bewirken sie nichts."
+              "info": "Erfolge würden dokumentieren, wie die Welt sich an dich erinnert, und künftige Begegnungen beeinflussen. In dieser Demo haben sie keinen weiteren Effekt."
             },
             {
               "label": "So tun, als wüsstest du von nichts",
-              "body": "Sie mustern dich misstrauisch. „Sicher … dann muss es wohl ein Zufall gewesen sein. Du kannst bleiben, aber wenn du eine sichere Nacht verbringen willst, musst du Wachen anheuern.“",
+              "body": "Sie sehen dich misstrauisch an. „Nun ja … dann war es wohl ein Zufall. Du kannst bleiben, aber für eine sichere Nacht musst du Wachen anheuern.“",
               "ongoing": ["Der Besuch des Gasthauses in dieser Siedlung kostet jeden Charakter 5 Gold."],
               "once": ["Der Weg zur Siedlung ist frei: Platziere Aufkleber B. Erhalte den Erfolg „Brandstifter“."],
-              "info": "Erfolge würden festhalten, wie sich die Welt an dich erinnert, und zukünftige Begegnungen verändern. In dieser Demo bewirken sie nichts."
+              "info": "Erfolge würden dokumentieren, wie die Welt sich an dich erinnert, und künftige Begegnungen beeinflussen. In dieser Demo haben sie keinen weiteren Effekt."
             }
           ]
         }
@@ -184,9 +184,9 @@
         "goal": "Besiege alle Gegner."
       },
       "conclusion": [
-        "Das Herz des Dickichts, der verderbte Waldgeist, der den Wald von innen vergiftet hatte, fällt endlich. Im gesprungenen Kern der Kreatur findest du eine blasse Wurzel, deren Spitzen noch grün sind. Als die Verderbnis schwindet, verdorren die Brombeeren der Region und ziehen sich von den Wegen zurück, die sie einst überwuchert hatten.",
+        "Das Herz des Dickichts, ein verderbter Waldgeist, der den Wald von innen vergiftet hatte, fällt endlich. Im rissigen Kern der Kreatur findest du eine blasse Wurzel, deren Spitzen noch grün schimmern. Als die Verderbnis schwindet, verdorren die Dornenbüsche der Region und ziehen sich von den Wegen zurück, die sie einst überwuchert hatten.",
         {
-          "info": "Die Demo endet hier. Andernfalls würden die Spieler einen einzigartigen Gegenstand, noch stärkere Karten und einen neuen Erfolg erhalten. Die Geschichte würde auf einer neuen Seite des Kartenbuchs mit einem „befreiten“ Dickicht fortgesetzt."
+          "info": "Die Demo endet hier. Im vollständigen Spiel würden die Spieler einen einzigartigen Gegenstand, noch stärkere Karten und einen neuen Erfolg erhalten. Die Geschichte würde auf einer neuen Seite des Kartenbuchs mit einem „befreiten“ Dickicht fortgesetzt."
         }
       ]
     }

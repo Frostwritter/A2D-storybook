@@ -7,8 +7,8 @@
   "chapters": [
     {
       "id": "the-thicket",
-      "title": "Il roveto",
-      "summary": "Una distesa intricata di rovi e pietre antiche."
+      "title": "La boscaglia",
+      "summary": "Un tratto di boscaglia fitta, tra rovi e pietre antiche."
     }
   ],
   "icons": {
@@ -27,11 +27,11 @@
       "spoilerFree": true,
       "title": "Il punto di pesca",
       "chapter": "the-thicket",
-      "body": "Tra gli alberi si apre uno specchio d'acqua tranquillo. Sotto la superficie si muovono forme scure, grandi pesci che sembrano lenti e privi di timore.",
+      "body": "Tra gli alberi si apre uno specchio d'acqua tranquillo. Sotto la superficie passano grandi sagome scure: pesci massicci, lenti e per nulla spaventati.",
       "choices": [
         {
           "label": "Andare a pescare",
-          "body": "La lenza non ha quasi toccato l'acqua quando qualcosa abbocca. Dopo una breve lotta, tiri a riva un'anguilla ancora guizzante.",
+          "body": "Appena la lenza tocca l'acqua, qualcosa abbocca. Dopo una breve lotta, tiri a riva un'anguilla ancora guizzante.",
           "once": ["Ottieni l'oggetto [Energizing Eel (1)]"]
         }
       ]
@@ -42,22 +42,22 @@
       "spoilerFree": true,
       "title": "La cappella invasa",
       "chapter": "the-thicket",
-      "body": "La chiesa è abbandonata nel roveto. Le pareti sono coperte di rampicanti e i gradini di muschio. I rovi si arrampicano sulla facciata crepata, il tetto cede sotto il verde e dalle porte aperte si vedono solo ombra e silenzio.",
+      "body": "La chiesa sorge abbandonata nella boscaglia. Le pareti sono coperte di rampicanti e i gradini di muschio. I rovi si arrampicano sulla facciata crepata, il tetto cede sotto il peso della vegetazione e dalle porte aperte si vedono solo ombra e silenzio.",
       "choices": [
         {
           "label": "Cercare nelle sale principali",
           "note": "Perdi 1 :Energy:",
-          "body": "Le sale principali sono più vuote di quanto ti aspettassi. Le panche sono sparite e gli altari sono spogli. In fondo, una sola torcia sembra ancora bruciare, in qualche modo.",
+          "body": "Le sale principali sono più vuote di quanto ti aspettassi. Le panche sono sparite e gli altari sono spogli. In fondo, una sola torcia sembra ancora ardere, chissà come.",
           "once": ["Ottieni l'oggetto [Torch (2)]"]
         },
         {
           "label": "Scendere le scale verso la cripta",
-          "body": "Dopo alcune svolte della scala, una grande porta di pietra ti sbarra la strada, ben chiusa.\n\nAccanto alla porta è stata ricavata una cavità nella pietra, grande appena abbastanza per una tavoletta o per una chiave di un'epoca dimenticata. Resta da capire se esista ancora qualcosa del genere.",
+          "body": "Dopo alcune rampe, una grande porta di pietra ti sbarra la strada. È ben chiusa.\n\nAccanto alla porta è stata ricavata una cavità nella pietra, grande appena abbastanza per una tavoletta o per una chiave di un'epoca dimenticata. Resta da capire se esista ancora qualcosa del genere.",
           "choices": [
             {
               "label": "Inserire la tavoletta nella cavità",
               "requires": "[Ancient Tablet (5)]",
-              "body": "Inserisci la tavoletta nella cavità. La porta resiste, poi cede, aprendosi lentamente e controvoglia da sola.\n\nOltre la porta c'è un'armeria, un ricordo del fatto che anche i monaci dovevano difendersi.",
+              "body": "Inserisci la tavoletta nella cavità. La porta oppone resistenza, poi cede e si apre lentamente, controvoglia.\n\nOltre la porta c'è un'armeria, un promemoria del fatto che anche i monaci dovevano difendersi.",
               "once": ["Ottieni gli oggetti [Simple Boots (8)] [Wooden Shield (9)] [Throwing Spear (6)] [Chain Armor (12)]."]
             }
           ]
@@ -70,20 +70,20 @@
       "spoilerFree": true,
       "title": "Il bosco aperto",
       "chapter": "the-thicket",
-      "body": "Qui il bosco è un po' più facile da attraversare rispetto al resto del roveto e molto meno aggrovigliato di rovi. In lontananza, un cervo scivola tra gli alberi e scompare.",
-      "info": "Non puoi riposare mentre esplori un POI. Per recuperare :Energy:, lascia il POI, esegui un'azione di riposo e poi esploralo di nuovo.",
+      "body": "Qui il bosco è più agevole da attraversare rispetto al resto della boscaglia, e i cespugli spinosi sono molto meno fitti. In lontananza, un cervo scivola tra gli alberi e scompare.",
+      "info": "In un POI non puoi riposare. Per recuperare :Energy:, lascia il POI, esegui un'azione di riposo e poi esploralo di nuovo.",
       "choices": [
         {
           "label": "Cercare legname utilizzabile",
           "note": "Perdi 2 :Energy:",
-          "body": "Passi un po' di tempo a cercare legna che possa davvero servire. Ce n'è abbastanza, se sei disposto a tagliarla e trasportarla.",
-          "info": "I materiali possono essere usati per migliorare il tuo accampamento. In questa demo, considerali semplicemente molto preziosi.",
+          "body": "Cerchi per un po' del legname che possa davvero essere utile. Ce n'è abbastanza, se sei disposto a tagliarlo e portarlo via.",
+          "info": "I materiali servono a migliorare il tuo accampamento. In questa demo, considerali semplicemente molto preziosi.",
           "once": ["Ottieni 5 materiali."]
         },
         {
           "label": "Andare a caccia",
           "note": "Perdi 2 :Energy:",
-          "body": "Segui le tracce come meglio puoi. Ci vuole pazienza, ma alla fine riesci a catturare il cervo.",
+          "body": "Segui le tracce come meglio puoi. Ci vuole pazienza, ma alla fine riesci ad abbattere il cervo.",
           "once": ["Ottieni gli oggetti [Food (3)] [Pelt (4)]"]
         }
       ]
@@ -94,12 +94,12 @@
       "spoilerFree": true,
       "title": "Le rovine del tempio",
       "chapter": "the-thicket",
-      "body": "Nel roveto si trova una rovina abbandonata. A prima vista è insignificante, solo un mucchio di pietre, ma osservandola più a lungo si distingue la forma di un antico tempio. Forse tra le macerie è rimasto qualcosa.",
+      "body": "Nella boscaglia si trova una rovina abbandonata. A prima vista è insignificante, solo un mucchio di pietre, ma osservandola più a lungo si distingue la forma di un antico tempio. Forse tra le macerie è rimasto qualcosa.",
       "choices": [
         {
           "label": "Cercare tra le rovine",
           "note": "Perdi 1 :Energy:",
-          "body": "Dopo aver cercato, trovi una vecchia tavoletta di pietra sotto una lastra crollata. Sembra molto antica.",
+          "body": "Dopo aver cercato, scopri una vecchia tavoletta di pietra sotto una lastra crollata. Deve essere molto antica.",
           "once": ["Ottieni l'oggetto [Ancient Tablet (5)]"]
         }
       ]
@@ -108,34 +108,34 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "L'avvallamento dei rovi",
+      "title": "L'avvallamento dei cespugli spinosi",
       "chapter": "the-thicket",
-      "body": "L'insediamento si trova in un avvallamento tra le montagne, raggiungibile solo da uno stretto sentiero. Un tempo quel sentiero era chiuso da un muro, e il muro è ancora lì a pezzi: la pietra è crollata e i cancelli sono spariti da tempo.\n\nCiò che resta dell'accesso è completamente invaso. Rovi spessi riempiono il sentiero da un lato all'altro, e non c'è modo di entrare se non attraversandoli.",
+      "body": "L'insediamento è incastonato tra le montagne e si raggiunge solo lungo uno stretto sentiero. Un tempo il sentiero era chiuso da un muro, di cui restano ancora alcuni tratti: le pietre hanno ceduto e i cancelli sono spariti da tempo.\n\nCiò che resta dell'accesso è completamente invaso. Cespugli spinosi e folti riempiono il sentiero da un lato all'altro, e non c'è modo di entrare se non attraversandoli.",
       "choices": [
         {
-          "label": "Farsi strada tra i rovi",
+          "label": "Farsi strada tra i cespugli spinosi",
           "note": "Ogni personaggio subisce :dmg: 5",
-          "body": "Ti fai strada con la forza tra i rovi. È estenuante, e lungo il percorso rimedi a più di qualche graffio.",
-          "repeatable": ["Passa dall'altra parte dei rovi."]
+          "body": "Ti fai strada con la forza tra i cespugli spinosi. È estenuante, e lungo il percorso rimedi a diversi graffi.",
+          "repeatable": ["Passa dall'altra parte dei cespugli spinosi."]
         },
         {
-          "label": "Questi rovi sembrano abbastanza secchi da bruciare …",
+          "label": "Questi cespugli spinosi sembrano abbastanza secchi da prendere fuoco …",
           "requires": "[Torch]",
-          "body": "Dai fuoco ai rovi. Il calore si riversa sul sentiero e il muro vivente crolla in cenere e braci. Quando il fuoco si spegne, la strada verso l'insediamento è completamente aperta.\n\nRaggiungi l'insediamento e vieni accolto da persone sconvolte. «Che cosa è successo ai rovi? Erano la nostra unica protezione contro gli orrori là fuori. Le nostre mura non sono proprio all'altezza. Dobbiamo ripararle il prima possibile. Sai che cosa è successo? Potresti aiutarci con le riparazioni?»",
+          "body": "Dai fuoco ai cespugli spinosi. Il calore investe il sentiero e il muro vivente crolla in cenere e braci. Quando il fuoco si spegne, la strada verso l'insediamento è completamente aperta.\n\nRaggiungi l'insediamento, dove persone sconvolte ti accolgono. «Che fine hanno fatto i cespugli spinosi? Erano la nostra unica protezione contro gli orrori là fuori. Le nostre mura non sono proprio all'altezza. Dobbiamo ripararle il prima possibile. Sai che cosa è successo? Potresti aiutarci con le riparazioni?»",
           "choices": [
             {
               "label": "Offrire il proprio aiuto",
               "note": "Costa 5 materiali",
-              "body": "Grazie al tuo aiuto e ai materiali che hai offerto, il muro viene riparato rapidamente. L'insediamento è di nuovo al sicuro.",
+              "body": "Grazie al tuo aiuto e ai materiali che hai messo a disposizione, il muro viene riparato rapidamente. L'insediamento è di nuovo al sicuro.",
               "once": ["La strada verso l'insediamento è libera: piazza l'adesivo A. Ottieni il traguardo «Aiutante»."],
-              "info": "I traguardi terrebbero traccia di come il mondo si ricorda di te e cambierebbero gli incontri futuri. In questa demo non hanno alcun effetto."
+              "info": "I traguardi servirebbero a mostrare come il mondo si ricorda di te e influenzerebbero gli incontri futuri. In questa demo non hanno altri effetti."
             },
             {
               "label": "Fingere di non sapere nulla",
-              "body": "Ti osservano con sospetto. «Certo … allora sarà stata una coincidenza. Puoi restare, ma se vuoi passare una notte al sicuro dovrai assumere delle guardie.»",
-              "ongoing": ["Visitare la locanda di questo insediamento costa 5 monete d'oro a ogni personaggio."],
+              "body": "Ti guardano con sospetto. «Certo … allora sarà stata una coincidenza. Puoi restare, ma se vuoi passare la notte al sicuro dovrai assumere delle guardie.»",
+              "ongoing": ["Soggiornare nella locanda di questo insediamento costa 5 monete d'oro per personaggio."],
               "once": ["La strada verso l'insediamento è libera: piazza l'adesivo B. Ottieni il traguardo «Piromane»."],
-              "info": "I traguardi terrebbero traccia di come il mondo si ricorda di te e cambierebbero gli incontri futuri. In questa demo non hanno alcun effetto."
+              "info": "I traguardi servirebbero a mostrare come il mondo si ricorda di te e influenzerebbero gli incontri futuri. In questa demo non hanno altri effetti."
             }
           ]
         }
@@ -153,9 +153,9 @@
       },
       "conclusion": [
         "Ottieni 10 monete d'oro per personaggio",
-        "Ogni personaggio ottiene una delle proprie :Card-2: e la mette in cima al proprio mazzo",
+        "Ogni personaggio ottiene una delle proprie carte :Card-2: e la mette in cima al proprio mazzo",
         {
-          "info": "Alla fine del combattimento, scarta la tua mano. Non rimescolare la pila degli scarti né quella degli scudi, entrambe restano così come sono per il prossimo combattimento."
+          "info": "Alla fine del combattimento, scarta la tua mano. Non rimescolare la pila degli scarti né quella degli scudi: entrambe restano così come sono per il prossimo combattimento."
         }
       ]
     },
@@ -184,9 +184,9 @@
         "goal": "Sconfiggi tutti i nemici."
       },
       "conclusion": [
-        "Il Cuore del roveto, lo spirito corrotto della foresta che avvelenava il bosco dall'interno, alla fine cade. Nel nucleo incrinato della creatura trovi una radice pallida, ancora verde alle estremità. Mentre la corruzione svanisce, i rovi della regione appassiscono e si ritirano dai sentieri che un tempo soffocavano.",
+        "Il Cuore della boscaglia, lo spirito corrotto della foresta che avvelenava il bosco dall'interno, alla fine cade. Nel nucleo incrinato della creatura trovi una radice pallida, ancora verde alle estremità. Mentre la corruzione svanisce, i cespugli spinosi della regione appassiscono e si ritirano dai sentieri che un tempo soffocavano.",
         {
-          "info": "La demo termina qui. Nel gioco completo, i giocatori riceverebbero un oggetto unico, carte ancora più potenti e un nuovo traguardo. La storia continuerebbe su una nuova pagina del libro della mappa, con un roveto «liberato»."
+          "info": "La demo termina qui. Nel gioco completo, i giocatori riceverebbero un oggetto unico, carte ancora più potenti e un nuovo traguardo. La storia continuerebbe su una nuova pagina del libro della mappa, con una boscaglia «liberata»."
         }
       ]
     }

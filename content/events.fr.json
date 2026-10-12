@@ -8,7 +8,7 @@
     {
       "id": "the-thicket",
       "title": "Le fourré",
-      "summary": "Une étendue dense de ronces et de vieilles pierres."
+      "summary": "Un coin de forêt dense, entre buissons épineux et vieilles pierres."
     }
   ],
   "icons": {
@@ -27,11 +27,11 @@
       "spoilerFree": true,
       "title": "Le coin de pêche",
       "chapter": "the-thicket",
-      "body": "Une étendue d'eau calme s'ouvre entre les arbres. De grandes formes sombres se déplacent sous la surface, des poissons qui semblent lents et sans méfiance.",
+      "body": "Une nappe d'eau calme apparaît entre les arbres. De grandes silhouettes se déplacent sous la surface : des poissons massifs qui semblent lents et peu méfiants.",
       "choices": [
         {
           "label": "Aller pêcher",
-          "body": "À peine la ligne est-elle posée que quelque chose mord. Après un court combat, vous tirez une anguille encore frémissante sur la berge.",
+          "body": "À peine la ligne touche-t-elle l'eau que quelque chose mord. Après un court combat, vous ramenez une anguille encore frémissante sur la berge.",
           "once": ["Gagnez l'objet [Energizing Eel (1)]"]
         }
       ]
@@ -42,7 +42,7 @@
       "spoilerFree": true,
       "title": "La chapelle envahie",
       "chapter": "the-thicket",
-      "body": "L'église est abandonnée dans le fourré. Des lianes couvrent les murs et de la mousse pousse sur les marches. Des ronces grimpent sur la façade fissurée, le toit ploie sous la verdure, et les portes ouvertes ne révèlent que l'ombre et le silence.",
+      "body": "L'église se dresse, abandonnée dans le fourré. Des lianes couvrent les murs et de la mousse pousse sur les marches. Des ronces grimpent sur la façade fissurée, le toit s'affaisse sous la végétation, et les portes ouvertes ne révèlent que l'ombre et le silence.",
       "choices": [
         {
           "label": "Fouiller les salles principales",
@@ -52,12 +52,12 @@
         },
         {
           "label": "Descendre l'escalier vers la crypte",
-          "body": "Après quelques tours d'escalier, une grande porte de pierre vous arrête, solidement verrouillée.\n\nÀ côté de la porte, une cavité est taillée dans la pierre, juste assez grande pour une tablette ou une clé d'un âge oublié. Reste à savoir si une telle chose existe encore.",
+          "body": "Après quelques virages, une grande porte de pierre vous barre le passage. Elle est solidement verrouillée.\n\nÀ côté de la porte, une cavité a été taillée dans la pierre, juste assez grande pour une tablette ou une clé d'un âge oublié. Reste à savoir si un tel objet existe encore.",
           "choices": [
             {
               "label": "Placer la tablette dans la cavité",
               "requires": "[Ancient Tablet (5)]",
-              "body": "Vous placez la tablette dans la cavité. La porte résiste, puis cède, s'ouvrant lentement et à contrecœur d'elle-même.\n\nDerrière se trouve une armurerie, rappelant que même les moines devaient se défendre.",
+              "body": "Vous placez la tablette dans la cavité. La porte résiste, puis finit par céder. Elle s'ouvre lentement et à contrecœur.\n\nDerrière se trouve une armurerie, rappelant que même les moines devaient se défendre.",
               "once": ["Gagnez les objets [Simple Boots (8)] [Wooden Shield (9)] [Throwing Spear (6)] [Chain Armor (12)]."]
             }
           ]
@@ -70,20 +70,20 @@
       "spoilerFree": true,
       "title": "Le bois ouvert",
       "chapter": "the-thicket",
-      "body": "Le bois est ici un peu plus facile à traverser que le reste du fourré et bien moins emmêlé de ronces. Au loin, un cerf se glisse entre les arbres et disparaît.",
-      "info": "Vous ne pouvez pas vous reposer pendant l'exploration d'un POI. Pour récupérer de l':Energy:, quittez le POI, effectuez une action de repos, puis explorez-le à nouveau.",
+      "body": "Le bois est ici un peu plus facile à traverser que le reste du fourré et bien moins envahi par les buissons épineux. Au loin, un cerf se glisse entre les arbres et disparaît.",
+      "info": "Vous ne pouvez pas vous reposer pendant l'exploration d'un POI. Pour récupérer votre :Energy:, quittez le POI, effectuez une action de repos, puis explorez-le à nouveau.",
       "choices": [
         {
           "label": "Chercher du bois utilisable",
           "note": "Perdez 2 :Energy:",
-          "body": "Vous passez un moment à chercher du bois qui puisse réellement servir. Il y en a suffisamment ici, si vous acceptez de le couper et de le transporter.",
-          "info": "Les matériaux servent à améliorer votre camp. Dans cette démo, considérez-les simplement comme très précieux.",
+          "body": "Vous passez un moment à chercher du bois vraiment utilisable. Il y en a suffisamment ici, à condition d'accepter de le couper et de le transporter.",
+          "info": "Les matériaux peuvent servir à améliorer votre camp. Dans cette démo, considérez-les simplement comme très précieux.",
           "once": ["Gagnez 5 matériaux."]
         },
         {
           "label": "Partir chasser",
           "note": "Perdez 2 :Energy:",
-          "body": "Vous suivez les traces du mieux possible. Il faut de la patience, mais vous finissez par attraper le cerf.",
+          "body": "Vous suivez les traces du mieux que vous pouvez. Il faut de la patience, mais vous finissez par abattre le cerf.",
           "once": ["Gagnez les objets [Food (3)] [Pelt (4)]"]
         }
       ]
@@ -94,12 +94,12 @@
       "spoilerFree": true,
       "title": "Les ruines du temple",
       "chapter": "the-thicket",
-      "body": "Une ruine abandonnée se trouve dans le fourré. Au premier regard, elle semble banale, un simple amas de pierres. En observant plus longtemps, la forme d'un ancien temple apparaît. Il reste peut-être quelque chose dans les décombres.",
+      "body": "Une ruine abandonnée se trouve dans le fourré. Au premier regard, elle semble banale, un simple amas de pierres. Mais en l'observant plus longtemps, la forme d'un ancien temple apparaît. Il reste peut-être quelque chose dans les décombres.",
       "choices": [
         {
           "label": "Fouiller les ruines",
           "note": "Perdez 1 :Energy:",
-          "body": "Après quelques recherches, vous trouvez une vieille tablette de pierre sous une dalle effondrée. Elle semble très ancienne.",
+          "body": "Après quelques recherches, vous découvrez une vieille tablette de pierre sous une dalle effondrée. Elle doit être très ancienne.",
           "once": ["Gagnez l'objet [Ancient Tablet (5)]"]
         }
       ]
@@ -108,34 +108,34 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "Le renfoncement des ronces",
+      "title": "Le creux aux buissons épineux",
       "chapter": "the-thicket",
-      "body": "La colonie se trouve dans un renfoncement des montagnes, accessible par un seul sentier étroit. Autrefois, un mur fermait ce passage. Il en reste des morceaux, la pierre s'est affaissée et les portes ont disparu depuis longtemps.\n\nCe qui reste de l'accès est complètement envahi. Des ronces épaisses barrent le chemin d'un côté à l'autre. Il n'y a pas d'autre passage que de les traverser.",
+      "body": "La colonie est nichée dans un creux des montagnes, accessible uniquement par un sentier étroit. Autrefois, un mur fermait ce passage. La muraille n'est plus qu'un vestige : les pierres ont cédé et les portes ont disparu depuis longtemps.\n\nL'accès est complètement envahi. De hauts buissons épineux barrent le chemin d'un côté à l'autre. Il n'y a pas d'autre passage que de les traverser.",
       "choices": [
         {
-          "label": "Se frayer un chemin dans les ronces",
+          "label": "Se frayer un chemin dans les buissons épineux",
           "note": "Chaque personnage subit :dmg: 5",
-          "body": "Vous forcez le passage à travers les ronces épaisses. C'est épuisant, et vous récoltez plusieurs égratignures au passage.",
-          "repeatable": ["Passez de l'autre côté des ronces."]
+          "body": "Vous vous frayez un chemin à travers les buissons épineux. C'est épuisant, et vous récoltez plusieurs égratignures au passage.",
+          "repeatable": ["Passez de l'autre côté des buissons épineux."]
         },
         {
-          "label": "Ces ronces semblent assez sèches pour brûler …",
+          "label": "Ces buissons épineux semblent assez secs pour brûler …",
           "requires": "[Torch]",
-          "body": "Vous mettez le feu aux ronces. La chaleur déferle sur le chemin et le mur vivant s'effondre en cendres et en braises. Lorsque le feu s'éteint, la route vers la colonie est grande ouverte.\n\nVous atteignez la colonie et êtes accueillis par des habitants bouleversés. « Qu'est-il arrivé aux ronces ? C'était notre seule protection contre les horreurs de l'extérieur. Nos murs ne sont vraiment plus à la hauteur. Nous devons les réparer au plus vite. Savez-vous ce qui s'est passé ? Pourriez-vous peut-être nous aider à les réparer ? »",
+          "body": "Vous mettez le feu aux buissons épineux. La chaleur se répand sur le chemin et le mur vivant s'effondre en cendres et en braises. Lorsque le feu s'éteint, la route vers la colonie est grande ouverte.\n\nVous atteignez la colonie, où des habitants affolés vous accueillent. « Qu'est-il arrivé aux buissons épineux ? C'était notre seule protection contre les horreurs de l'extérieur. Nos murs ne sont vraiment plus à la hauteur. Nous devons les réparer au plus vite. Savez-vous ce qui s'est passé ? Pourriez-vous peut-être nous aider à les réparer ? »",
           "choices": [
             {
               "label": "Proposer votre aide",
               "note": "Coûte 5 matériaux",
-              "body": "Grâce à votre aide et aux matériaux offerts, le mur est rapidement réparé. La colonie est à nouveau en sécurité.",
+              "body": "Grâce à votre aide et aux matériaux que vous avez fournis, le mur est rapidement réparé. La colonie est à nouveau en sécurité.",
               "once": ["La route vers la colonie est libre : placez l'autocollant A. Gagnez le succès « Aidant »."],
-              "info": "Les succès indiqueraient comment le monde se souvient de vous et changeraient les rencontres futures. Dans cette démo, ils n'ont aucun effet."
+              "info": "Les succès serviraient à montrer comment le monde se souvient de vous et influenceraient les rencontres futures. Dans cette démo, ils n'ont aucun autre effet."
             },
             {
               "label": "Prétendre ne rien savoir",
-              "body": "Ils vous observent avec méfiance. « Bien sûr … ce doit être une coïncidence. Vous pouvez rester, mais si vous voulez passer une nuit en sécurité, il faudra engager des gardes. »",
-              "ongoing": ["Chaque personnage doit payer 5 pièces d'or pour visiter l'auberge de cette colonie."],
+              "body": "Ils vous dévisagent avec méfiance. « Bien sûr … ce n'est donc qu'une coïncidence. Vous pouvez rester, mais pour passer la nuit en sécurité, vous devrez engager des gardes. »",
+              "ongoing": ["Séjourner à l'auberge de cette colonie coûte 5 pièces d'or par personnage."],
               "once": ["La route vers la colonie est libre : placez l'autocollant B. Gagnez le succès « Pyromane »."],
-              "info": "Les succès indiqueraient comment le monde se souvient de vous et changeraient les rencontres futures. Dans cette démo, ils n'ont aucun effet."
+              "info": "Les succès serviraient à montrer comment le monde se souvient de vous et influenceraient les rencontres futures. Dans cette démo, ils n'ont aucun autre effet."
             }
           ]
         }
@@ -153,9 +153,9 @@
       },
       "conclusion": [
         "Gagnez 10 pièces d'or par personnage",
-        "Chaque personnage gagne une de ses :Card-2: et la place au sommet de son paquet",
+        "Chaque personnage obtient l'une de ses cartes :Card-2: et la place au sommet de son paquet",
         {
-          "info": "À la fin du combat, défaussez votre main. Ne mélangez ni la défausse ni la pile de boucliers. Les deux restent telles quelles pour le prochain combat."
+          "info": "À la fin du combat, défaussez votre main. Ne remélangez ni la défausse ni la pile de boucliers : toutes deux restent telles quelles pour le prochain combat."
         }
       ]
     },
@@ -184,7 +184,7 @@
         "goal": "Éliminez tous les ennemis."
       },
       "conclusion": [
-        "Le Cœur du fourré, l'esprit corrompu de la forêt qui empoisonnait les bois de l'intérieur, tombe enfin. Dans le cœur fissuré de la créature, vous trouvez une racine pâle dont les extrémités sont encore vertes. Alors que la corruption disparaît, les ronces de la région se flétrissent et se retirent des chemins qu'elles étouffaient.",
+        "Le Cœur du fourré, esprit corrompu de la forêt qui empoisonnait les bois de l'intérieur, finit par tomber. Dans le cœur fissuré de la créature, vous trouvez une racine pâle dont les extrémités sont encore vertes. Alors que la corruption disparaît, les buissons épineux de la région se flétrissent et se retirent des chemins qu'ils étouffaient.",
         {
           "info": "La démo s'arrête ici. Dans le jeu complet, les joueurs recevraient un objet unique, des cartes encore plus puissantes et un nouveau succès. L'histoire continuerait sur une nouvelle page du livre de cartes, avec un fourré « libéré »."
         }

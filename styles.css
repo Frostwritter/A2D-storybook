@@ -863,7 +863,7 @@ body {
 
 .page-nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
   margin-top: 2rem;
   padding-top: 1rem;
@@ -871,14 +871,15 @@ body {
 }
 
 .nav-btn {
-  border: 0;
-  background: transparent;
+  border: 1px solid var(--accent);
+  border-radius: 0.35rem;
+  background: var(--accent-soft);
   color: var(--accent);
   font: inherit;
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 0.35rem 0;
+  padding: 0.55rem 0.8rem;
 }
 
 .nav-btn:disabled {
@@ -887,7 +888,7 @@ body {
 }
 
 .nav-btn:not(:disabled):hover {
-  text-decoration: underline;
+  background: #b4d8cd;
 }
 
 @media (max-width: 860px) {

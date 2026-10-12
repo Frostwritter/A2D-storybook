@@ -64,7 +64,7 @@
       "spoilerFree": true,
       "title": "The Open Wood",
       "chapter": "the-thicket",
-      "body": "The wood here is a little easier going than the rest of the thicket, and far less tangled with brambles. In the distance, a deer slips between the trees and is gone.",
+      "body": "The wood here is a little easier going than the rest of the thicket, and far less tangled with thorn bushes. In the distance, a deer slips between the trees and is gone.",
       "info": "You cannot rest while exploring a POI. To regain :Energy:, leave the POI, take a rest action, then explore it again.",
       "choices": [
         {
@@ -77,7 +77,7 @@
         {
           "label": "Go hunting",
           "note": "Lose 2 :Energy:",
-          "body": "You follow the signs as best you can. It takes patience, but you catch the dear after all.",
+          "body": "You follow the signs as best you can. It takes patience, but you finally bring the deer down.",
           "once": ["Gain items [Food (3)] [Pelt (4)]"]
         }
       ]
@@ -102,20 +102,20 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "The Bramble Recess",
+      "title": "The Thorn-Bush Recess",
       "chapter": "the-thicket",
-      "body": "The settlement sits in a recess in the mountains, reachable only by a narrow path. They used to close that path with a wall, and the wall is still there in pieces, the stone slumped and the gates long gone.\n\nWhat remains of the approach is completely overgrown. Thick brambles fill the path from side to side, and there is no way in except through them.",
+      "body": "The settlement sits in a recess in the mountains, reachable only by a narrow path. They used to close that path with a wall, and the wall is still there in pieces, the stone slumped and the gates long gone.\n\nWhat remains of the approach is completely overgrown. Thick thorn bushes fill the path from side to side, and there is no way in except through them.",
       "choices": [
         {
-          "label": "Fight your way through the brambles",
+          "label": "Fight your way through the thorn bushes",
           "note": "Each player takes :dmg: 5",
-          "body": "You force your way through the thick brambles. It is exhausting, and you pick up more than a few scratches along the way.",
-          "repeatable": ["Move to the other side of the brambles."]
+          "body": "You force your way through the thick thorn bushes. It is exhausting, and you pick up more than a few scratches along the way.",
+          "repeatable": ["Move to the other side of the thorn bushes."]
         },
         {
-          "label": "These brambles look dry enough to burn…",
+          "label": "These thorn bushes look dry enough to burn…",
           "requires": "[Torch]",
-          "body": "You set the brambles alight. Heat rolls over the path, and the living wall collapses into ash and embers. When the fire dies, the way to the settlement stands wide open.\n\nYou reach the settlement and are greeted by distressed people. “What happened to the brambles? They were our only protection against the terrors outside. Our walls are really not up to date. We need to repair them as soon as we can. Do you know what happened? Could you maybe help us with the repairs?”",
+          "body": "You set the thorn bushes alight. Heat rolls over the path, and the living wall collapses into ash and embers. When the fire dies, the way to the settlement stands wide open.\n\nYou reach the settlement and are greeted by distressed people. “What happened to the thorn bushes? They were our only protection against the terrors outside. Our walls are really not up to date. We need to repair them as soon as we can. Do you know what happened? Could you maybe help us with the repairs?”",
           "choices": [
             {
               "label": "Offer your help",
@@ -174,7 +174,7 @@
         "goal": "Kill all enemies."
       },
       "conclusion": [
-        "The Heart of the Thicket, the corrupt forest spirit that had been poisoning the woods from within, finally falls. In the cracked core of the creature you find a pale root still green at the tips. As the corruption fades, the brambles across the region wither and pull back from the paths they once choked.",
+        "The Heart of the Thicket, the corrupt forest spirit that had been poisoning the woods from within, finally falls. In the cracked core of the creature you find a pale root still green at the tips. As the corruption fades, the thorn bushes across the region wither and pull back from the paths they once choked.",
         { "info": "The Demo ends here. Otherwise, players would receive a unique item, even stronger cards and a new achievement. The story would continue from a new page of the map book with a 'liberated' Thicket." }
       ]
     }

@@ -23,9 +23,7 @@ const UI_TEXT = {
     entries: "Entries",
     contents: "Contents",
     chooseEntry: "Choose an entry",
-    emptyDescription: "Events and story texts are listed on the left. Edit them in",
-    previous: "← Previous",
-    next: "Next →",
+    backToList: "← Back to list",
     info: "Info",
     ongoing: "Ongoing",
     once: "Once",
@@ -52,9 +50,7 @@ const UI_TEXT = {
     entries: "Einträge",
     contents: "Inhalt",
     chooseEntry: "Eintrag auswählen",
-    emptyDescription: "Ereignisse und Geschichten stehen links. Bearbeite sie in",
-    previous: "← Zurück",
-    next: "Weiter →",
+    backToList: "← Zur Liste",
     info: "Info",
     ongoing: "Dauerhaft",
     once: "Einmalig",
@@ -81,9 +77,7 @@ const UI_TEXT = {
     entries: "Entrées",
     contents: "Sommaire",
     chooseEntry: "Choisir une entrée",
-    emptyDescription: "Les événements et les textes sont listés à gauche. Modifiez-les dans",
-    previous: "← Précédent",
-    next: "Suivant →",
+    backToList: "← Retour à la liste",
     info: "Info",
     ongoing: "Permanent",
     once: "Unique",
@@ -110,9 +104,7 @@ const UI_TEXT = {
     entries: "Voci",
     contents: "Indice",
     chooseEntry: "Scegli una voce",
-    emptyDescription: "Eventi e testi della storia sono elencati a sinistra. Modificali in",
-    previous: "← Precedente",
-    next: "Successivo →",
+    backToList: "← Torna all'elenco",
     info: "Info",
     ongoing: "Continuativo",
     once: "Una tantum",
@@ -154,12 +146,10 @@ const els = {
   pageSummary: document.getElementById("page-summary"),
   pageTags: document.getElementById("page-tags"),
   pageBody: document.getElementById("page-body"),
-  prevBtn: document.getElementById("prev-btn"),
-  nextBtn: document.getElementById("next-btn"),
+  backBtn: document.getElementById("back-btn"),
   pageNav: document.getElementById("page-nav"),
   menuToggle: document.getElementById("menu-toggle"),
   emptyTitle: document.getElementById("empty-title"),
-  emptyDescription: document.getElementById("empty-description"),
 };
 
 /** @type {{ meta: object, chapters: object[], icons?: Record<string, string>, events: object[], combats: object[] }} */
@@ -607,18 +597,21 @@ function showEmpty() {
   els.page.hidden = true;
   els.empty.hidden = false;
   els.emptyTitle.textContent = text("chooseEntry");
-  renderEmptyDescription();
   history.replaceState(null, "", location.pathname + location.search);
   renderList();
 }
 
-function renderEmptyDescription() {
-  els.emptyDescription.replaceChildren(
-    document.createTextNode(`${text("emptyDescription")} `)
-  );
-  const code = document.createElement("code");
-  code.textContent = activeLanguage === "en" ? "content/events.json" : `content/events.${activeLanguage}.json`;
-  els.emptyDescription.append(code, document.createTextNode("."));
+function returnToList() {
+  if (activeSection === "poi" && activeChapterId) {
+    selectChapter(activeChapterId, true);
+    return;
+  }
+
+  showEmpty();
+  if (window.matchMedia("(max-width: 860px)").matches) {
+    document.body.classList.add("rail-open");
+    els.menuToggle.setAttribute("aria-expanded", "true");
+  }
 }
 
 function selectChapter(chapterId, pushHash = false) {
@@ -806,16 +799,6 @@ function selectCombat(id, pushHash = false) {
   els.pageBody.replaceChildren(renderCombatBody(combat));
   els.pageBody.hidden = false;
 
-  const visible = filteredCombats();
-  const index = visible.findIndex((c) => c.id === id);
-  els.prevBtn.disabled = index <= 0;
-  els.nextBtn.disabled = index < 0 || index >= visible.length - 1;
-  els.prevBtn.textContent = text("previous");
-  els.nextBtn.textContent = text("next");
-  els.prevBtn.onclick = () => index > 0 && selectCombat(visible[index - 1].id, true);
-  els.nextBtn.onclick = () =>
-    index >= 0 && index < visible.length - 1 && selectCombat(visible[index + 1].id, true);
-
   setHash(id, pushHash);
   renderList();
 }
@@ -867,16 +850,6 @@ function selectEvent(id, pushHash = false) {
   appendContentBlocks(els.pageBody, event, { renderNestedChoices: renderChoiceList });
   els.pageBody.hidden = els.pageBody.childElementCount === 0;
 
-  const visible = filteredPois();
-  const index = visible.findIndex((e) => e.id === id);
-  els.prevBtn.disabled = index <= 0;
-  els.nextBtn.disabled = index < 0 || index >= visible.length - 1;
-  els.prevBtn.textContent = text("previous");
-  els.nextBtn.textContent = text("next");
-  els.prevBtn.onclick = () => index > 0 && selectEvent(visible[index - 1].id, true);
-  els.nextBtn.onclick = () =>
-    index >= 0 && index < visible.length - 1 && selectEvent(visible[index + 1].id, true);
-
   setHash(id, pushHash);
   renderList();
 }
@@ -915,11 +888,9 @@ function updateChrome() {
   els.sectionTabs.setAttribute("aria-label", text("sections"));
   els.list.setAttribute("aria-label", text("entries"));
   els.menuToggle.textContent = text("contents");
-  els.prevBtn.textContent = text("previous");
-  els.nextBtn.textContent = text("next");
+  els.backBtn.textContent = text("backToList");
   if (!els.empty.hidden) {
     els.emptyTitle.textContent = text("chooseEntry");
-    renderEmptyDescription();
   }
 }
 
@@ -976,19 +947,14 @@ els.languageSelect.addEventListener("change", (event) => {
   changeLanguage(event.target.value);
 });
 
+els.backBtn.addEventListener("click", returnToList);
+
 els.menuToggle.addEventListener("click", () => {
   const open = document.body.classList.toggle("rail-open");
   els.menuToggle.setAttribute("aria-expanded", String(open));
 });
 
 window.addEventListener("hashchange", applyHash);
-
-window.addEventListener("keydown", (e) => {
-  if (e.target.matches("input, textarea")) return;
-  if (showingChapter) return;
-  if (e.key === "ArrowLeft") els.prevBtn.click();
-  if (e.key === "ArrowRight") els.nextBtn.click();
-});
 
 boot().catch((err) => {
   els.empty.hidden = false;
