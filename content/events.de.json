@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "title": "Das verlorene Kapitel",
+    "tagline": "Ereignisse und Kämpfe",
+    "language": "de"
+  },
+  "chapters": [
+    {
+      "id": "the-thicket",
+      "title": "Das Dickicht",
+      "summary": "Ein dichter Abschnitt aus Dornen und altem Stein."
+    }
+  ],
+  "icons": {
+    "Energy": "assets/icons/energy_black.png",
+    "Card-1": "assets/icons/diamond-gray.png",
+    "Card-2": "assets/icons/diamond-blue.png",
+    "Card-3": "assets/icons/diamond-purple.png",
+    "dmg": "assets/icons/dmg_black.png",
+    "Torch": "assets/icons/torch.svg",
+    "Ancient Tablet": "assets/icons/ancient-tablet.svg"
+  },
+  "events": [
+    {
+      "id": "thicket-fishing-point",
+      "number": 1,
+      "spoilerFree": true,
+      "title": "Die Angelstelle",
+      "chapter": "the-thicket",
+      "body": "Zwischen den Bäumen öffnet sich ein stilles Stück Wasser. Unter der Oberfläche bewegen sich dunkle Formen, große Fische, die langsam und furchtlos wirken.",
+      "choices": [
+        {
+          "label": "Angeln gehen",
+          "body": "Die Schnur liegt kaum im Wasser, da beißt schon etwas an. Nach einem kurzen Kampf ziehst du einen noch zuckenden Aal ans Ufer.",
+          "once": ["Erhalte Gegenstand [Energizing Eel (1)]"]
+        }
+      ]
+    },
+    {
+      "id": "thicket-1",
+      "number": 2,
+      "spoilerFree": true,
+      "title": "Die überwucherte Kapelle",
+      "chapter": "the-thicket",
+      "body": "Die Kirche steht verlassen im Dickicht. Weinranken bedecken die Wände und Moos wächst auf den Stufen. Dornen klettern an der rissigen Fassade empor, das Dach hängt unter dem Grün durch, und durch die offenen Türen dringen nur Schatten und Stille.",
+      "choices": [
+        {
+          "label": "Die Haupthallen durchsuchen",
+          "note": "Verliere 1 :Energy:",
+          "body": "Die Haupthallen sind leerer, als du erwartet hast. Die Bänke sind verschwunden und die Altäre kahl. Am anderen Ende scheint noch eine einzelne Fackel zu brennen, irgendwie.",
+          "once": ["Erhalte Gegenstand [Torch (2)]"]
+        },
+        {
+          "label": "Die Treppe zur Krypta hinabsteigen",
+          "body": "Nach einigen Windungen hält dich eine große Steintür auf, fest verschlossen.\n\nNeben der Tür ist eine Öffnung in den Stein geschnitten, gerade groß genug für eine Tafel oder einen Schlüssel aus längst vergessener Zeit. Ob so etwas noch existiert, ist eine andere Frage.",
+          "choices": [
+            {
+              "label": "Die Tafel in die Öffnung einsetzen",
+              "requires": "[Ancient Tablet (5)]",
+              "body": "Du setzt die Tafel in die Öffnung. Die Tür wehrt sich, gibt dann aber nach und öffnet sich langsam und widerwillig von selbst.\n\nDahinter liegt eine Waffenkammer, eine Erinnerung daran, dass selbst die Mönche sich verteidigen mussten.",
+              "once": ["Erhalte Gegenstände [Simple Boots (8)] [Wooden Shield (9)] [Throwing Spear (6)] [Chain Armor (12)]."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thicket-2",
+      "number": 3,
+      "spoilerFree": true,
+      "title": "Der offene Wald",
+      "chapter": "the-thicket",
+      "body": "Der Wald ist hier etwas leichter zu durchqueren als der Rest des Dickichts und viel weniger von Brombeeren überwuchert. In der Ferne verschwindet ein Reh zwischen den Bäumen.",
+      "info": "Während du einen POI erkundest, kannst du dich nicht ausruhen. Um :Energy: zurückzugewinnen, verlasse den POI, führe eine Rastaktion aus und erkunde ihn danach erneut.",
+      "choices": [
+        {
+          "label": "Den Wald nach brauchbarem Holz durchsuchen",
+          "note": "Verliere 2 :Energy:",
+          "body": "Du verbringst einige Zeit damit, Holz zu suchen, das tatsächlich brauchbar ist. Es gibt hier genug davon, wenn du bereit bist, es zu fällen und zu tragen.",
+          "info": "Materialien können verwendet werden, um dein Lager zu verbessern. In dieser Demo behandelst du sie einfach als sehr wertvoll.",
+          "once": ["Erhalte 5 Material."]
+        },
+        {
+          "label": "Auf die Jagd gehen",
+          "note": "Verliere 2 :Energy:",
+          "body": "Du folgst den Spuren so gut du kannst. Es braucht Geduld, aber schließlich erwischst du das Reh.",
+          "once": ["Erhalte Gegenstände [Food (3)] [Pelt (4)]"]
+        }
+      ]
+    },
+    {
+      "id": "thicket-3",
+      "number": 4,
+      "spoilerFree": true,
+      "title": "Die Tempelruine",
+      "chapter": "the-thicket",
+      "body": "Im Dickicht liegt eine verlassene Ruine. Auf den ersten Blick ist sie unscheinbar, nur eine Ansammlung von Steinen. Wenn du länger hinsiehst, zeichnet sich jedoch die Form eines alten Tempels ab. Vielleicht liegt noch etwas im Geröll.",
+      "choices": [
+        {
+          "label": "Die Ruinen durchsuchen",
+          "note": "Verliere 1 :Energy:",
+          "body": "Nach einiger Suche findest du eine alte Steintafel unter einer eingestürzten Platte. Sie sieht sehr alt aus.",
+          "once": ["Erhalte Gegenstand [Ancient Tablet (5)]"]
+        }
+      ]
+    },
+    {
+      "id": "thicket-4",
+      "number": 5,
+      "spoilerFree": true,
+      "title": "Die Dornensenke",
+      "chapter": "the-thicket",
+      "body": "Die Siedlung liegt in einer Senke zwischen den Bergen und ist nur über einen schmalen Pfad erreichbar. Früher versperrte eine Mauer den Weg. Teile davon stehen noch, der Stein ist eingesunken und die Tore sind längst verschwunden.\n\nDer verbliebene Zugang ist völlig überwuchert. Dichte Brombeeren versperren den Weg von einer Seite zur anderen. Es gibt keinen Weg hinein, außer durch sie hindurch.",
+      "choices": [
+        {
+          "label": "Sich durch die Brombeeren kämpfen",
+          "note": "Jeder Charakter nimmt :dmg: 5",
+          "body": "Du bahnst dir einen Weg durch die dichten Brombeeren. Es ist anstrengend, und dabei holst du dir mehr als ein paar Kratzer.",
+          "repeatable": ["Bewege dich auf die andere Seite der Brombeeren."]
+        },
+        {
+          "label": "Diese Brombeeren sehen trocken genug aus, um sie zu verbrennen …",
+          "requires": "[Torch]",
+          "body": "Du entzündest die Brombeeren. Hitze rollt über den Weg, und die lebende Mauer fällt zu Asche und Glut zusammen. Als das Feuer erlischt, steht der Weg zur Siedlung weit offen.\n\nDu erreichst die Siedlung und wirst von aufgebrachten Menschen begrüßt. „Was ist mit den Brombeeren passiert? Sie waren unser einziger Schutz vor den Schrecken draußen. Unsere Mauern sind wirklich nicht mehr zeitgemäß. Wir müssen sie so bald wie möglich reparieren. Weißt du, was geschehen ist? Könntest du uns vielleicht bei den Reparaturen helfen?“",
+          "choices": [
+            {
+              "label": "Deine Hilfe anbieten",
+              "note": "Kostet 5 Material",
+              "body": "Dank deiner Hilfe und der Materialien, die du angeboten hast, ist die Mauer schnell repariert. Die Siedlung ist wieder sicher.",
+              "once": ["Der Weg zur Siedlung ist frei: Platziere Aufkleber A. Erhalte den Erfolg „Helfer“."],
+              "info": "Erfolge würden festhalten, wie sich die Welt an dich erinnert, und zukünftige Begegnungen verändern. In dieser Demo bewirken sie nichts."
+            },
+            {
+              "label": "So tun, als wüsstest du von nichts",
+              "body": "Sie mustern dich misstrauisch. „Sicher … dann muss es wohl ein Zufall gewesen sein. Du kannst bleiben, aber wenn du eine sichere Nacht verbringen willst, musst du Wachen anheuern.“",
+              "ongoing": ["Der Besuch des Gasthauses in dieser Siedlung kostet jeden Charakter 5 Gold."],
+              "once": ["Der Weg zur Siedlung ist frei: Platziere Aufkleber B. Erhalte den Erfolg „Brandstifter“."],
+              "info": "Erfolge würden festhalten, wie sich die Welt an dich erinnert, und zukünftige Begegnungen verändern. In dieser Demo bewirken sie nichts."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "combats": [
+    {
+      "id": "combat-i",
+      "label": "I",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-I.png",
+        "goal": "Besiege alle Gegner."
+      },
+      "conclusion": [
+        "Erhalte 10 Gold pro Charakter",
+        "Jeder Charakter erhält eine seiner :Card-2:-Karten und legt sie oben auf seinen Stapel",
+        {
+          "info": "Am Ende des Kampfes legst du deine Hand ab. Mische weder den Ablagestapel noch den Schildstapel neu. Beide bleiben für den nächsten Kampf unverändert."
+        }
+      ]
+    },
+    {
+      "id": "combat-ii",
+      "label": "II",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-II.png",
+        "goal": "Besiege alle Gegner."
+      },
+      "conclusion": [
+        "Erhalte 10 Gold pro Charakter",
+        "Jeder Charakter erhält eine seiner :Card-2:-Karten und legt sie oben auf seinen Stapel",
+        {
+          "info": "Am Ende des Kampfes legst du deine Hand ab. Mische weder den Ablagestapel noch den Schildstapel neu. Beide bleiben für den nächsten Kampf unverändert."
+        }
+      ]
+    },
+    {
+      "id": "combat-x",
+      "label": "X",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-X.png",
+        "goal": "Besiege alle Gegner."
+      },
+      "conclusion": [
+        "Das Herz des Dickichts, der verderbte Waldgeist, der den Wald von innen vergiftet hatte, fällt endlich. Im gesprungenen Kern der Kreatur findest du eine blasse Wurzel, deren Spitzen noch grün sind. Als die Verderbnis schwindet, verdorren die Brombeeren der Region und ziehen sich von den Wegen zurück, die sie einst überwuchert hatten.",
+        {
+          "info": "Die Demo endet hier. Andernfalls würden die Spieler einen einzigartigen Gegenstand, noch stärkere Karten und einen neuen Erfolg erhalten. Die Geschichte würde auf einer neuen Seite des Kartenbuchs mit einem „befreiten“ Dickicht fortgesetzt."
+        }
+      ]
+    }
+  ]
+}

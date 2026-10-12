@@ -27,6 +27,16 @@
       <div class="section-tabs" id="section-tabs" role="tablist" aria-label="Sections"></div>
 
       <nav class="event-list" id="event-list" aria-label="Entries"></nav>
+
+      <div class="language-switcher">
+        <label for="language-select" id="language-label" aria-hidden="true">🇬🇧</label>
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="it">Italiano</option>
+        </select>
+      </div>
     </aside>
 
     <main class="reader" id="reader">
@@ -49,8 +59,8 @@
       </article>
 
       <div class="empty" id="empty">
-        <h1>Choose an entry</h1>
-        <p>Events and story texts are listed on the left. Edit them in <code>content/events.json</code>.</p>
+        <h1 id="empty-title">Choose an entry</h1>
+        <p id="empty-description">Events and story texts are listed on the left. Edit them in <code>content/events.json</code>.</p>
       </div>
     </main>
   </div>

@@ -105,6 +105,39 @@ body {
   line-height: 1.35;
 }
 
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  color: var(--fog);
+  font-size: 0.75rem;
+}
+
+.language-switcher label {
+  flex: 0 0 auto;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.language-switcher select {
+  min-width: 0;
+  flex: 1;
+  border: 1px solid rgba(215, 224, 218, 0.18);
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.35rem 0.4rem;
+  font: inherit;
+  cursor: pointer;
+  color-scheme: light;
+}
+
+.language-switcher select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 .search input {
   width: 100%;
   border: 1px solid rgba(215, 224, 218, 0.18);

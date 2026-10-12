@@ -25,6 +25,8 @@ In `content/events.json`:
 
 The sidebar has two sections: **POI** and **Combats**. Search is in the HTML but hidden for now.
 
+The language selector in the sidebar switches the complete interface and story content between English, German, French, and Italian. The selected language is saved in the browser. Translated content lives in `content/events.de.json`, `content/events.fr.json`, and `content/events.it.json`; stable IDs keep bookmarks working when switching languages.
+
 **Items** in `once` / `ongoing` use square brackets:
 
 ```text

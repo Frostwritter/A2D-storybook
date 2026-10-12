@@ -1,14 +1,150 @@
-const DATA_URL = new URL("./content/events.json", import.meta.url);
+const LANGUAGE_STORAGE_KEY = "a2d-storybook-language";
+
+const LANGUAGES = [
+  { id: "en", label: "English", file: "events.json" },
+  { id: "de", label: "Deutsch", file: "events.de.json" },
+  { id: "fr", label: "Français", file: "events.fr.json" },
+  { id: "it", label: "Italiano", file: "events.it.json" },
+];
+
+const LANGUAGE_FLAGS = {
+  en: "🇬🇧",
+  de: "🇩🇪",
+  fr: "🇫🇷",
+  it: "🇮🇹",
+};
+
+const UI_TEXT = {
+  en: {
+    language: "Language",
+    search: "Search",
+    searchPlaceholder: "Search…",
+    sections: "Sections",
+    entries: "Entries",
+    contents: "Contents",
+    chooseEntry: "Choose an entry",
+    emptyDescription: "Events and story texts are listed on the left. Edit them in",
+    previous: "← Previous",
+    next: "Next →",
+    info: "Info",
+    ongoing: "Ongoing",
+    once: "Once",
+    repeatable: "Repeatable",
+    requires: "Requires",
+    setup: "Setup",
+    conclusion: "Conclusion",
+    goal: "Goal",
+    setupImage: "Setup image",
+    noConclusion: "No conclusion listed yet.",
+    poi: "POI",
+    combats: "Combats",
+    chapter: "Chapter",
+    combat: "Combat",
+    killAllEnemies: "Kill all enemies.",
+    contentMissing: "Content missing",
+    effectVerbs: ["Gain", "Lose"],
+  },
+  de: {
+    language: "Sprache",
+    search: "Suchen",
+    searchPlaceholder: "Suchen…",
+    sections: "Bereiche",
+    entries: "Einträge",
+    contents: "Inhalt",
+    chooseEntry: "Eintrag auswählen",
+    emptyDescription: "Ereignisse und Geschichten stehen links. Bearbeite sie in",
+    previous: "← Zurück",
+    next: "Weiter →",
+    info: "Info",
+    ongoing: "Dauerhaft",
+    once: "Einmalig",
+    repeatable: "Wiederholbar",
+    requires: "Benötigt",
+    setup: "Vorbereitung",
+    conclusion: "Abschluss",
+    goal: "Ziel",
+    setupImage: "Vorbereitungsbild",
+    noConclusion: "Noch kein Abschluss eingetragen.",
+    poi: "POI",
+    combats: "Kämpfe",
+    chapter: "Kapitel",
+    combat: "Kampf",
+    killAllEnemies: "Besiege alle Gegner.",
+    contentMissing: "Inhalt fehlt",
+    effectVerbs: ["Erhalte", "Verliere"],
+  },
+  fr: {
+    language: "Langue",
+    search: "Rechercher",
+    searchPlaceholder: "Rechercher…",
+    sections: "Sections",
+    entries: "Entrées",
+    contents: "Sommaire",
+    chooseEntry: "Choisir une entrée",
+    emptyDescription: "Les événements et les textes sont listés à gauche. Modifiez-les dans",
+    previous: "← Précédent",
+    next: "Suivant →",
+    info: "Info",
+    ongoing: "Permanent",
+    once: "Unique",
+    repeatable: "Répétable",
+    requires: "Requiert",
+    setup: "Préparation",
+    conclusion: "Conclusion",
+    goal: "Objectif",
+    setupImage: "Image de préparation",
+    noConclusion: "Aucune conclusion n'est encore indiquée.",
+    poi: "POI",
+    combats: "Combats",
+    chapter: "Chapitre",
+    combat: "Combat",
+    killAllEnemies: "Éliminez tous les ennemis.",
+    contentMissing: "Contenu introuvable",
+    effectVerbs: ["Gagnez", "Perdez"],
+  },
+  it: {
+    language: "Lingua",
+    search: "Cerca",
+    searchPlaceholder: "Cerca…",
+    sections: "Sezioni",
+    entries: "Voci",
+    contents: "Indice",
+    chooseEntry: "Scegli una voce",
+    emptyDescription: "Eventi e testi della storia sono elencati a sinistra. Modificali in",
+    previous: "← Precedente",
+    next: "Successivo →",
+    info: "Info",
+    ongoing: "Continuativo",
+    once: "Una tantum",
+    repeatable: "Ripetibile",
+    requires: "Richiede",
+    setup: "Preparazione",
+    conclusion: "Conclusione",
+    goal: "Obiettivo",
+    setupImage: "Immagine della preparazione",
+    noConclusion: "Nessuna conclusione indicata.",
+    poi: "POI",
+    combats: "Combattimenti",
+    chapter: "Capitolo",
+    combat: "Combattimento",
+    killAllEnemies: "Sconfiggi tutti i nemici.",
+    contentMissing: "Contenuto mancante",
+    effectVerbs: ["Ottieni", "Perdi"],
+  },
+};
 
 const SECTIONS = [
-  { id: "poi", label: "POI", emoji: "📍" },
-  { id: "combat", label: "Combats", emoji: "⚔️" },
+  { id: "poi", labelKey: "poi", emoji: "📍" },
+  { id: "combat", labelKey: "combats", emoji: "⚔️" },
 ];
 
 const els = {
   brandTitle: document.getElementById("brand-title"),
   brandTagline: document.getElementById("brand-tagline"),
+  languageLabel: document.getElementById("language-label"),
+  languageSelect: document.getElementById("language-select"),
   search: document.getElementById("search"),
+  searchWrap: document.getElementById("search-wrap"),
   sectionTabs: document.getElementById("section-tabs"),
   list: document.getElementById("event-list"),
   page: document.getElementById("page"),
@@ -22,6 +158,8 @@ const els = {
   nextBtn: document.getElementById("next-btn"),
   pageNav: document.getElementById("page-nav"),
   menuToggle: document.getElementById("menu-toggle"),
+  emptyTitle: document.getElementById("empty-title"),
+  emptyDescription: document.getElementById("empty-description"),
 };
 
 /** @type {{ meta: object, chapters: object[], icons?: Record<string, string>, events: object[], combats: object[] }} */
@@ -31,9 +169,25 @@ let activeId = null;
 let activeChapterId = null;
 let showingChapter = false;
 let combatPanel = "setup";
+let activeLanguage = getInitialLanguage();
+
+function getInitialLanguage() {
+  const stored = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  if (LANGUAGES.some((language) => language.id === stored)) return stored;
+  return "en";
+}
+
+function text(key) {
+  return UI_TEXT[activeLanguage]?.[key] ?? UI_TEXT.en[key] ?? key;
+}
+
+function dataUrlForLanguage(language) {
+  const file = LANGUAGES.find((entry) => entry.id === language)?.file;
+  return new URL(`./content/${file || "events.json"}`, import.meta.url);
+}
 
 function assetUrl(path) {
-  return new URL(path, DATA_URL).href;
+  return new URL(path, dataUrlForLanguage(activeLanguage)).href;
 }
 
 function iconPath(name) {
@@ -74,7 +228,8 @@ function renderItemChip(label) {
 }
 
 function appendVerbs(parent, text) {
-  const pattern = /\b(Gain|Lose)\b/g;
+  const verbs = textForLanguage("effectVerbs");
+  const pattern = new RegExp(`\\b(${verbs.map(escapeRegExp).join("|")})\\b`, "g");
   let lastIndex = 0;
   for (const match of text.matchAll(pattern)) {
     const index = match.index ?? 0;
@@ -86,6 +241,15 @@ function appendVerbs(parent, text) {
     lastIndex = index + match[0].length;
   }
   if (lastIndex < text.length) parent.append(text.slice(lastIndex));
+}
+
+function textForLanguage(key) {
+  const value = text(key);
+  return Array.isArray(value) ? value : [];
+}
+
+function escapeRegExp(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function appendPlainMarkedText(parent, text) {
@@ -189,8 +353,8 @@ function appendParagraphs(parent, text) {
   }
 }
 
-function renderInfo(text) {
-  if (!text) return null;
+function renderInfo(content) {
+  if (!content) return null;
 
   const info = document.createElement("aside");
   info.className = "info-box";
@@ -198,21 +362,21 @@ function renderInfo(text) {
 
   const label = document.createElement("span");
   label.className = "info-label";
-  label.textContent = "Info";
+  label.textContent = text("info");
 
-  appendMarkedText(info, text, "info-text");
+  appendMarkedText(info, content, "info-text");
   info.prepend(label);
   return info;
 }
 
-const EFFECT_LABELS = {
-  ongoing: "Ongoing",
-  once: "Once",
-  repeatable: "Repeatable",
+const EFFECT_LABEL_KEYS = {
+  ongoing: "ongoing",
+  once: "once",
+  repeatable: "repeatable",
 };
 
 function appendEffectRows(stack, kind, texts) {
-  const label = EFFECT_LABELS[kind];
+  const label = text(EFFECT_LABEL_KEYS[kind]);
   for (const text of texts || []) {
     const row = document.createElement("div");
     row.className = `effect effect-${kind}`;
@@ -230,7 +394,7 @@ function appendContentBlocks(parent, source, { renderNestedChoices } = {}) {
   let effectStack = null;
 
   for (const key of Object.keys(source)) {
-    if (key in EFFECT_LABELS) {
+    if (key in EFFECT_LABEL_KEYS) {
       const texts = source[key];
       if (!Array.isArray(texts) || !texts.length) continue;
       if (!effectStack) {
@@ -296,7 +460,7 @@ function renderSectionTabs() {
       emoji.setAttribute("aria-hidden", "true");
       emoji.textContent = section.emoji;
       const label = document.createElement("span");
-      label.textContent = section.label;
+      label.textContent = text(section.labelKey);
       btn.append(emoji, label);
       btn.addEventListener("click", () => {
         if (activeSection === section.id) return;
@@ -336,7 +500,7 @@ function renderChoice(choice) {
     req.className = "choice-requires";
     const word = document.createElement("span");
     word.className = "requires-word";
-    word.textContent = "Requires";
+    word.textContent = text("requires");
     req.append(word);
     appendMarkedText(req, choice.requires, "requires-text");
     summary.append(req);
@@ -442,8 +606,19 @@ function showEmpty() {
   showingChapter = false;
   els.page.hidden = true;
   els.empty.hidden = false;
+  els.emptyTitle.textContent = text("chooseEntry");
+  renderEmptyDescription();
   history.replaceState(null, "", location.pathname + location.search);
   renderList();
+}
+
+function renderEmptyDescription() {
+  els.emptyDescription.replaceChildren(
+    document.createTextNode(`${text("emptyDescription")} `)
+  );
+  const code = document.createElement("code");
+  code.textContent = activeLanguage === "en" ? "content/events.json" : `content/events.${activeLanguage}.json`;
+  els.emptyDescription.append(code, document.createTextNode("."));
 }
 
 function selectChapter(chapterId, pushHash = false) {
@@ -464,7 +639,7 @@ function selectChapter(chapterId, pushHash = false) {
   els.page.hidden = false;
   els.pageNav.hidden = true;
 
-  els.pageMeta.textContent = "Chapter";
+  els.pageMeta.textContent = text("chapter");
   els.pageMeta.hidden = false;
   els.pageTitle.textContent = chapter.title;
   els.pageSummary.textContent = chapter.summary || "";
@@ -515,7 +690,7 @@ function renderConclusionList(conclusion = []) {
   if (!hasContent) {
     const empty = document.createElement("p");
     empty.className = "conclusion-empty";
-    empty.textContent = "No conclusion listed yet.";
+    empty.textContent = text("noConclusion");
     return empty;
   }
 
@@ -550,8 +725,8 @@ function renderCombatBody(combat) {
   tabs.setAttribute("role", "tablist");
 
   for (const panel of [
-    { id: "setup", label: "Setup" },
-    { id: "conclusion", label: "Conclusion" },
+    { id: "setup", label: text("setup") },
+    { id: "conclusion", label: text("conclusion") },
   ]) {
     const btn = document.createElement("button");
     btn.type = "button";
@@ -581,17 +756,17 @@ function renderCombatBody(combat) {
     } else {
       const placeholder = document.createElement("div");
       placeholder.className = "setup-image-placeholder";
-      placeholder.textContent = "Setup image";
+      placeholder.textContent = text("setupImage");
       panel.append(placeholder);
     }
     const goal = document.createElement("aside");
     goal.className = "combat-goal";
     const goalLabel = document.createElement("span");
     goalLabel.className = "combat-goal-label";
-    goalLabel.textContent = "Goal";
+    goalLabel.textContent = text("goal");
     const goalText = document.createElement("span");
     goalText.className = "combat-goal-text";
-    goalText.textContent = setup.goal || "Kill all enemies.";
+    goalText.textContent = setup.goal || text("killAllEnemies");
     goal.append(goalLabel, goalText);
     panel.append(goal);
   }
@@ -621,7 +796,7 @@ function selectCombat(id, pushHash = false) {
   els.pageNav.hidden = false;
 
   els.pageMeta.hidden = false;
-  els.pageMeta.textContent = "Combat";
+  els.pageMeta.textContent = text("combat");
   els.pageTitle.textContent = combatLabel(combat);
   els.pageSummary.textContent = "";
   els.pageSummary.hidden = true;
@@ -635,6 +810,8 @@ function selectCombat(id, pushHash = false) {
   const index = visible.findIndex((c) => c.id === id);
   els.prevBtn.disabled = index <= 0;
   els.nextBtn.disabled = index < 0 || index >= visible.length - 1;
+  els.prevBtn.textContent = text("previous");
+  els.nextBtn.textContent = text("next");
   els.prevBtn.onclick = () => index > 0 && selectCombat(visible[index - 1].id, true);
   els.nextBtn.onclick = () =>
     index >= 0 && index < visible.length - 1 && selectCombat(visible[index + 1].id, true);
@@ -664,7 +841,7 @@ function selectEvent(id, pushHash = false) {
   els.pageMeta.hidden = false;
   els.pageMeta.replaceChildren();
   const typeEl = document.createElement("span");
-  typeEl.textContent = "POI";
+  typeEl.textContent = text("poi");
   const sep = document.createTextNode(" · ");
   const chapterBtn = document.createElement("button");
   chapterBtn.type = "button";
@@ -694,6 +871,8 @@ function selectEvent(id, pushHash = false) {
   const index = visible.findIndex((e) => e.id === id);
   els.prevBtn.disabled = index <= 0;
   els.nextBtn.disabled = index < 0 || index >= visible.length - 1;
+  els.prevBtn.textContent = text("previous");
+  els.nextBtn.textContent = text("next");
   els.prevBtn.onclick = () => index > 0 && selectEvent(visible[index - 1].id, true);
   els.nextBtn.onclick = () =>
     index >= 0 && index < visible.length - 1 && selectEvent(visible[index + 1].id, true);
@@ -725,17 +904,65 @@ function applyHash() {
   selectEvent(id, false);
 }
 
+function updateChrome() {
+  document.documentElement.lang = activeLanguage;
+  els.languageLabel.textContent = LANGUAGE_FLAGS[activeLanguage] || LANGUAGE_FLAGS.en;
+  els.languageLabel.title = text("language");
+  els.languageSelect.value = activeLanguage;
+  els.languageSelect.setAttribute("aria-label", text("language"));
+  els.searchWrap.querySelector(".sr-only").textContent = text("search");
+  els.search.placeholder = text("searchPlaceholder");
+  els.sectionTabs.setAttribute("aria-label", text("sections"));
+  els.list.setAttribute("aria-label", text("entries"));
+  els.menuToggle.textContent = text("contents");
+  els.prevBtn.textContent = text("previous");
+  els.nextBtn.textContent = text("next");
+  if (!els.empty.hidden) {
+    els.emptyTitle.textContent = text("chooseEntry");
+    renderEmptyDescription();
+  }
+}
+
+async function fetchLanguageData(language) {
+  const res = await fetch(dataUrlForLanguage(language));
+  if (!res.ok) throw new Error(`Could not load content for ${language} (${res.status})`);
+  const nextData = await res.json();
+  nextData.combats ||= [];
+  return nextData;
+}
+
+async function changeLanguage(language) {
+  if (!LANGUAGES.some((entry) => entry.id === language) || language === activeLanguage) return;
+  const previousLanguage = activeLanguage;
+
+  try {
+    data = await fetchLanguageData(language);
+    activeLanguage = language;
+    localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+    const title = data.meta?.title || "Storybook";
+    document.title = title;
+    els.brandTitle.textContent = title;
+    els.brandTagline.textContent = data.meta?.tagline || "";
+    updateChrome();
+    renderSectionTabs();
+    renderList();
+    applyHash();
+  } catch (err) {
+    activeLanguage = previousLanguage;
+    els.languageSelect.value = previousLanguage;
+    console.error(err);
+  }
+}
+
 async function boot() {
-  const res = await fetch(DATA_URL);
-  if (!res.ok) throw new Error(`Could not load content/events.json (${res.status})`);
-  data = await res.json();
-  data.combats ||= [];
+  data = await fetchLanguageData(activeLanguage);
 
   const title = data.meta?.title || "Storybook";
   document.title = title;
   els.brandTitle.textContent = title;
   els.brandTagline.textContent = data.meta?.tagline || "";
 
+  updateChrome();
   renderSectionTabs();
   renderList();
   applyHash();
@@ -743,6 +970,10 @@ async function boot() {
 
 els.search?.addEventListener("input", () => {
   renderList();
+});
+
+els.languageSelect.addEventListener("change", (event) => {
+  changeLanguage(event.target.value);
 });
 
 els.menuToggle.addEventListener("click", () => {
@@ -762,6 +993,11 @@ window.addEventListener("keydown", (e) => {
 boot().catch((err) => {
   els.empty.hidden = false;
   els.page.hidden = true;
-  els.empty.innerHTML = `<h1>Content missing</h1><p>${err.message}</p>`;
+  els.empty.replaceChildren();
+  const title = document.createElement("h1");
+  title.textContent = text("contentMissing");
+  const message = document.createElement("p");
+  message.textContent = err.message;
+  els.empty.append(title, message);
   console.error(err);
 });

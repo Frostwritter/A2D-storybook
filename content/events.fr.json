@@ -1,0 +1,194 @@
+{
+  "meta": {
+    "title": "Le chapitre perdu",
+    "tagline": "Événements et combats",
+    "language": "fr"
+  },
+  "chapters": [
+    {
+      "id": "the-thicket",
+      "title": "Le fourré",
+      "summary": "Une étendue dense de ronces et de vieilles pierres."
+    }
+  ],
+  "icons": {
+    "Energy": "assets/icons/energy_black.png",
+    "Card-1": "assets/icons/diamond-gray.png",
+    "Card-2": "assets/icons/diamond-blue.png",
+    "Card-3": "assets/icons/diamond-purple.png",
+    "dmg": "assets/icons/dmg_black.png",
+    "Torch": "assets/icons/torch.svg",
+    "Ancient Tablet": "assets/icons/ancient-tablet.svg"
+  },
+  "events": [
+    {
+      "id": "thicket-fishing-point",
+      "number": 1,
+      "spoilerFree": true,
+      "title": "Le coin de pêche",
+      "chapter": "the-thicket",
+      "body": "Une étendue d'eau calme s'ouvre entre les arbres. De grandes formes sombres se déplacent sous la surface, des poissons qui semblent lents et sans méfiance.",
+      "choices": [
+        {
+          "label": "Aller pêcher",
+          "body": "À peine la ligne est-elle posée que quelque chose mord. Après un court combat, vous tirez une anguille encore frémissante sur la berge.",
+          "once": ["Gagnez l'objet [Energizing Eel (1)]"]
+        }
+      ]
+    },
+    {
+      "id": "thicket-1",
+      "number": 2,
+      "spoilerFree": true,
+      "title": "La chapelle envahie",
+      "chapter": "the-thicket",
+      "body": "L'église est abandonnée dans le fourré. Des lianes couvrent les murs et de la mousse pousse sur les marches. Des ronces grimpent sur la façade fissurée, le toit ploie sous la verdure, et les portes ouvertes ne révèlent que l'ombre et le silence.",
+      "choices": [
+        {
+          "label": "Fouiller les salles principales",
+          "note": "Perdez 1 :Energy:",
+          "body": "Les salles principales sont plus vides que prévu. Les bancs ont disparu et les autels sont nus. Au fond, une seule torche semble encore brûler, on ne sait comment.",
+          "once": ["Gagnez l'objet [Torch (2)]"]
+        },
+        {
+          "label": "Descendre l'escalier vers la crypte",
+          "body": "Après quelques tours d'escalier, une grande porte de pierre vous arrête, solidement verrouillée.\n\nÀ côté de la porte, une cavité est taillée dans la pierre, juste assez grande pour une tablette ou une clé d'un âge oublié. Reste à savoir si une telle chose existe encore.",
+          "choices": [
+            {
+              "label": "Placer la tablette dans la cavité",
+              "requires": "[Ancient Tablet (5)]",
+              "body": "Vous placez la tablette dans la cavité. La porte résiste, puis cède, s'ouvrant lentement et à contrecœur d'elle-même.\n\nDerrière se trouve une armurerie, rappelant que même les moines devaient se défendre.",
+              "once": ["Gagnez les objets [Simple Boots (8)] [Wooden Shield (9)] [Throwing Spear (6)] [Chain Armor (12)]."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thicket-2",
+      "number": 3,
+      "spoilerFree": true,
+      "title": "Le bois ouvert",
+      "chapter": "the-thicket",
+      "body": "Le bois est ici un peu plus facile à traverser que le reste du fourré et bien moins emmêlé de ronces. Au loin, un cerf se glisse entre les arbres et disparaît.",
+      "info": "Vous ne pouvez pas vous reposer pendant l'exploration d'un POI. Pour récupérer de l':Energy:, quittez le POI, effectuez une action de repos, puis explorez-le à nouveau.",
+      "choices": [
+        {
+          "label": "Chercher du bois utilisable",
+          "note": "Perdez 2 :Energy:",
+          "body": "Vous passez un moment à chercher du bois qui puisse réellement servir. Il y en a suffisamment ici, si vous acceptez de le couper et de le transporter.",
+          "info": "Les matériaux servent à améliorer votre camp. Dans cette démo, considérez-les simplement comme très précieux.",
+          "once": ["Gagnez 5 matériaux."]
+        },
+        {
+          "label": "Partir chasser",
+          "note": "Perdez 2 :Energy:",
+          "body": "Vous suivez les traces du mieux possible. Il faut de la patience, mais vous finissez par attraper le cerf.",
+          "once": ["Gagnez les objets [Food (3)] [Pelt (4)]"]
+        }
+      ]
+    },
+    {
+      "id": "thicket-3",
+      "number": 4,
+      "spoilerFree": true,
+      "title": "Les ruines du temple",
+      "chapter": "the-thicket",
+      "body": "Une ruine abandonnée se trouve dans le fourré. Au premier regard, elle semble banale, un simple amas de pierres. En observant plus longtemps, la forme d'un ancien temple apparaît. Il reste peut-être quelque chose dans les décombres.",
+      "choices": [
+        {
+          "label": "Fouiller les ruines",
+          "note": "Perdez 1 :Energy:",
+          "body": "Après quelques recherches, vous trouvez une vieille tablette de pierre sous une dalle effondrée. Elle semble très ancienne.",
+          "once": ["Gagnez l'objet [Ancient Tablet (5)]"]
+        }
+      ]
+    },
+    {
+      "id": "thicket-4",
+      "number": 5,
+      "spoilerFree": true,
+      "title": "Le renfoncement des ronces",
+      "chapter": "the-thicket",
+      "body": "La colonie se trouve dans un renfoncement des montagnes, accessible par un seul sentier étroit. Autrefois, un mur fermait ce passage. Il en reste des morceaux, la pierre s'est affaissée et les portes ont disparu depuis longtemps.\n\nCe qui reste de l'accès est complètement envahi. Des ronces épaisses barrent le chemin d'un côté à l'autre. Il n'y a pas d'autre passage que de les traverser.",
+      "choices": [
+        {
+          "label": "Se frayer un chemin dans les ronces",
+          "note": "Chaque personnage subit :dmg: 5",
+          "body": "Vous forcez le passage à travers les ronces épaisses. C'est épuisant, et vous récoltez plusieurs égratignures au passage.",
+          "repeatable": ["Passez de l'autre côté des ronces."]
+        },
+        {
+          "label": "Ces ronces semblent assez sèches pour brûler …",
+          "requires": "[Torch]",
+          "body": "Vous mettez le feu aux ronces. La chaleur déferle sur le chemin et le mur vivant s'effondre en cendres et en braises. Lorsque le feu s'éteint, la route vers la colonie est grande ouverte.\n\nVous atteignez la colonie et êtes accueillis par des habitants bouleversés. « Qu'est-il arrivé aux ronces ? C'était notre seule protection contre les horreurs de l'extérieur. Nos murs ne sont vraiment plus à la hauteur. Nous devons les réparer au plus vite. Savez-vous ce qui s'est passé ? Pourriez-vous peut-être nous aider à les réparer ? »",
+          "choices": [
+            {
+              "label": "Proposer votre aide",
+              "note": "Coûte 5 matériaux",
+              "body": "Grâce à votre aide et aux matériaux offerts, le mur est rapidement réparé. La colonie est à nouveau en sécurité.",
+              "once": ["La route vers la colonie est libre : placez l'autocollant A. Gagnez le succès « Aidant »."],
+              "info": "Les succès indiqueraient comment le monde se souvient de vous et changeraient les rencontres futures. Dans cette démo, ils n'ont aucun effet."
+            },
+            {
+              "label": "Prétendre ne rien savoir",
+              "body": "Ils vous observent avec méfiance. « Bien sûr … ce doit être une coïncidence. Vous pouvez rester, mais si vous voulez passer une nuit en sécurité, il faudra engager des gardes. »",
+              "ongoing": ["Chaque personnage doit payer 5 pièces d'or pour visiter l'auberge de cette colonie."],
+              "once": ["La route vers la colonie est libre : placez l'autocollant B. Gagnez le succès « Pyromane »."],
+              "info": "Les succès indiqueraient comment le monde se souvient de vous et changeraient les rencontres futures. Dans cette démo, ils n'ont aucun effet."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "combats": [
+    {
+      "id": "combat-i",
+      "label": "I",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-I.png",
+        "goal": "Éliminez tous les ennemis."
+      },
+      "conclusion": [
+        "Gagnez 10 pièces d'or par personnage",
+        "Chaque personnage gagne une de ses :Card-2: et la place au sommet de son paquet",
+        {
+          "info": "À la fin du combat, défaussez votre main. Ne mélangez ni la défausse ni la pile de boucliers. Les deux restent telles quelles pour le prochain combat."
+        }
+      ]
+    },
+    {
+      "id": "combat-ii",
+      "label": "II",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-II.png",
+        "goal": "Éliminez tous les ennemis."
+      },
+      "conclusion": [
+        "Gagnez 10 pièces d'or par personnage",
+        "Chaque personnage gagne une de ses :Card-2: et la place au sommet de son paquet",
+        {
+          "info": "À la fin du combat, défaussez votre main. Ne mélangez ni la défausse ni la pile de boucliers. Les deux restent telles quelles pour le prochain combat."
+        }
+      ]
+    },
+    {
+      "id": "combat-x",
+      "label": "X",
+      "setup": {
+        "body": "",
+        "image": "assets/icons/Thicket-X.png",
+        "goal": "Éliminez tous les ennemis."
+      },
+      "conclusion": [
+        "Le Cœur du fourré, l'esprit corrompu de la forêt qui empoisonnait les bois de l'intérieur, tombe enfin. Dans le cœur fissuré de la créature, vous trouvez une racine pâle dont les extrémités sont encore vertes. Alors que la corruption disparaît, les ronces de la région se flétrissent et se retirent des chemins qu'elles étouffaient.",
+        {
+          "info": "La démo s'arrête ici. Dans le jeu complet, les joueurs recevraient un objet unique, des cartes encore plus puissantes et un nouveau succès. L'histoire continuerait sur une nouvelle page du livre de cartes, avec un fourré « libéré »."
+        }
+      ]
+    }
+  ]
+}
