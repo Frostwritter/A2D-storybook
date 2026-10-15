@@ -12,7 +12,8 @@
     "Card-1": "assets/icons/diamond-gray.png",
     "Card-2": "assets/icons/diamond-blue.png",
     "Card-3": "assets/icons/diamond-purple.png",
-    "dmg": "assets/icons/dmg_black.png"
+    "dmg": "assets/icons/dmg_black.png",
+    "time": "assets/icons/hourglass_black.png"
   },
   "events": [
     {
@@ -25,7 +26,8 @@
       "choices": [
         {
           "label": "Go fishing",
-          "body": "The bait has barely touched the water when the line goes taut. After a short fight, you pull an eel ashore, still twitching.",
+          "note": "Spend 2 :time:",
+          "body": "You spend a while by the quiet water, casting and waiting as the hours pass. At last the line goes taut, and after a short fight you pull an eel ashore, still twitching.",
           "once": ["Gain item [Energizing Eel (1)]"]
         }
       ]
@@ -40,8 +42,8 @@
       "choices": [
         {
           "label": "Search the main halls",
-          "note": "Lose 1 :Energy:",
-          "body": "The main halls are emptier than you expected. The benches are gone and the altars are bare. At the far end, a single torch still seems to burn, somehow.",
+          "note": "Spend 2 :time:",
+          "body": "Room by room, the main halls give little back. The benches are gone, the altars stripped bare, and dust lies thick where people once gathered. Only after you have covered the whole stretch do you notice it: at the far end, a single torch still seems to burn, somehow.",
           "once": ["Gain item [Torch (2)]"]
         },
         {
@@ -68,14 +70,14 @@
       "choices": [
         {
           "label": "Search the wood for usable timber",
-          "note": "Lose 2 :Energy:",
+          "note": "Spend 3 :time:",
           "body": "You spend some time looking for wood that will actually be of use. There is enough of it here, if you are willing to cut and carry.",
           "info": "Materials can be used to upgrade your camp. In this demo, just treat them as quite valuable.",
           "once": ["Gain 5 Material."]
         },
         {
           "label": "Go hunting",
-          "note": "Lose 2 :Energy:",
+          "note": "Spend 3 :time:",
           "body": "You follow the signs as best you can. It takes patience, but you finally bring the deer down.",
           "once": ["Gain items [Food (3)] [Pelt (4)]"]
         }
@@ -92,7 +94,7 @@
       "choices": [
         {
           "label": "Search the ruins",
-          "note": "Lose 1 :Energy:",
+          "note": "Spend 2 :time:",
           "body": "After some searching you find an old stone tablet under a fallen slab. It looks very old.",
           "once": ["Gain item [Ancient Tablet (5)]"]
         }
@@ -108,7 +110,7 @@
       "choices": [
         {
           "label": "Fight your way through the thorn bushes",
-          "note": "Each player takes :dmg: 5",
+          "note": "Spend 1 :time:, everyone takes :dmg: 5",
           "body": "You force your way through the thick thorn bushes. It is exhausting, and you pick up more than a few scratches along the way.",
           "repeatable": ["Move to the other side of the thorn bushes."]
         },

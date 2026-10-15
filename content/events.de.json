@@ -31,7 +31,7 @@
       "choices": [
         {
           "label": "Angeln gehen",
-          "body": "Kaum liegt der Köder im Wasser, spannt sich die Schnur. Nach einem kurzen Kampf ziehst du einen noch zuckenden Aal ans Ufer.",
+          "body": "Du verbringst eine Weile am stillen Wasser, wirfst aus und wartest, während die Stunden vergehen. Schließlich spannt sich die Schnur, und nach einem kurzen Kampf ziehst du einen noch zuckenden Aal ans Ufer.",
           "once": ["Erhalte Gegenstand [Energizing Eel (1)]"]
         }
       ]
@@ -47,7 +47,7 @@
         {
           "label": "Die Haupthallen durchsuchen",
           "note": "Verliere 1 :Energy:",
-          "body": "Die Haupthallen sind leerer, als du erwartet hast. Die Bänke sind verschwunden und die Altäre kahl. Am anderen Ende scheint tatsächlich noch eine einzelne Fackel zu brennen.",
+          "body": "Raum für Raum geben die Haupthallen wenig her. Die Bänke sind verschwunden, die Altäre kahl, und Staub liegt dort, wo einst Menschen saßen. Erst als du den ganzen Trakt abgegangen bist, fällt es dir auf: Am anderen Ende scheint tatsächlich noch eine einzelne Fackel zu brennen.",
           "once": ["Erhalte Gegenstand [Torch (2)]"]
         },
         {

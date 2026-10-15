@@ -31,7 +31,7 @@
       "choices": [
         {
           "label": "Andare a pescare",
-          "body": "L'esca è appena in acqua quando la lenza si tende. Dopo una breve lotta, tiri a riva un'anguilla ancora guizzante.",
+          "body": "Passi un po' di tempo sull'acqua quieta, lanciando e aspettando mentre passano le ore. Alla fine la lenza si tende, e dopo una breve lotta tiri a riva un'anguilla ancora guizzante.",
           "once": ["Ottieni l'oggetto [Energizing Eel (1)]"]
         }
       ]
@@ -47,7 +47,7 @@
         {
           "label": "Cercare nelle sale principali",
           "note": "Perdi 1 :Energy:",
-          "body": "Le sale principali sono più vuote di quanto ti aspettassi. Le panche sono sparite e gli altari sono spogli. In fondo, una sola torcia sembra ancora ardere, chissà come.",
+          "body": "Stanza dopo stanza, le sale principali restituiscono poco. Le panche sono sparite, gli altari sono spogli, e la polvere ricopre i posti dove un tempo si radunava la gente. Solo dopo aver percorso tutta l'ala lo noti: in fondo, una sola torcia sembra ancora ardere, chissà come.",
           "once": ["Ottieni l'oggetto [Torch (2)]"]
         },
         {

@@ -31,7 +31,7 @@
       "choices": [
         {
           "label": "Aller pêcher",
-          "body": "À peine l'appât touche-t-il l'eau que la ligne se tend. Après un court combat, vous ramenez une anguille encore frémissante sur la berge.",
+          "body": "Vous passez un moment au bord de l'eau calme, lançant et attendant tandis que les heures s'écoulent. Enfin la ligne se tend, et après un court combat vous ramenez une anguille encore frémissante sur la berge.",
           "once": ["Gagnez l'objet [Energizing Eel (1)]"]
         }
       ]
@@ -47,7 +47,7 @@
         {
           "label": "Fouiller les salles principales",
           "note": "Perdez 1 :Energy:",
-          "body": "Les salles principales sont plus vides que prévu. Les bancs ont disparu et les autels sont nus. Au fond, une seule torche semble encore brûler, on ne sait comment.",
+          "body": "Salle après salle, les nefs principales ne vous rendent presque rien. Les bancs ont disparu, les autels sont nus, et la poussière s'est installée là où des gens se rassemblaient. Ce n'est qu'après avoir parcouru toute l'aile que vous le remarquez : au fond, une seule torche semble encore brûler, on ne sait comment.",
           "once": ["Gagnez l'objet [Torch (2)]"]
         },
         {
