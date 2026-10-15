@@ -16,9 +16,7 @@
     "Card-1": "assets/icons/diamond-gray.png",
     "Card-2": "assets/icons/diamond-blue.png",
     "Card-3": "assets/icons/diamond-purple.png",
-    "dmg": "assets/icons/dmg_black.png",
-    "Torch": "assets/icons/torch.svg",
-    "Ancient Tablet": "assets/icons/ancient-tablet.svg"
+    "dmg": "assets/icons/dmg_black.png"
   },
   "events": [
     {
@@ -108,7 +106,7 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "Le creux aux buissons épineux",
+      "title": "Le creux de montagne",
       "chapter": "the-thicket",
       "body": "La colonie est nichée dans un creux des montagnes, accessible uniquement par un sentier étroit. Autrefois, un mur fermait ce passage. La muraille n'est plus qu'un vestige : les pierres ont cédé et les portes ont disparu depuis longtemps.\n\nL'accès est complètement envahi. De hauts buissons épineux barrent le chemin d'un côté à l'autre. Il n'y a pas d'autre passage que de les traverser.",
       "choices": [

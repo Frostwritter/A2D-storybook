@@ -16,9 +16,7 @@
     "Card-1": "assets/icons/diamond-gray.png",
     "Card-2": "assets/icons/diamond-blue.png",
     "Card-3": "assets/icons/diamond-purple.png",
-    "dmg": "assets/icons/dmg_black.png",
-    "Torch": "assets/icons/torch.svg",
-    "Ancient Tablet": "assets/icons/ancient-tablet.svg"
+    "dmg": "assets/icons/dmg_black.png"
   },
   "events": [
     {
@@ -108,7 +106,7 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "L'avvallamento dei cespugli spinosi",
+      "title": "L'avvallamento montano",
       "chapter": "the-thicket",
       "body": "L'insediamento è incastonato tra le montagne e si raggiunge solo lungo uno stretto sentiero. Un tempo il sentiero era chiuso da un muro, di cui restano ancora alcuni tratti: le pietre hanno ceduto e i cancelli sono spariti da tempo.\n\nCiò che resta dell'accesso è completamente invaso. Cespugli spinosi e folti riempiono il sentiero da un lato all'altro, e non c'è modo di entrare se non attraversandoli.",
       "choices": [

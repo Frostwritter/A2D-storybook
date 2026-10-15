@@ -515,11 +515,6 @@ body {
   opacity: 0.9;
 }
 
-.item-chip .icon {
-  width: 1.05em;
-  height: 1.05em;
-}
-
 .info-box {
   display: flex;
   align-items: baseline;

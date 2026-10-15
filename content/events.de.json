@@ -16,9 +16,7 @@
     "Card-1": "assets/icons/diamond-gray.png",
     "Card-2": "assets/icons/diamond-blue.png",
     "Card-3": "assets/icons/diamond-purple.png",
-    "dmg": "assets/icons/dmg_black.png",
-    "Torch": "assets/icons/torch.svg",
-    "Ancient Tablet": "assets/icons/ancient-tablet.svg"
+    "dmg": "assets/icons/dmg_black.png"
   },
   "events": [
     {
@@ -108,7 +106,7 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "Die Senke voller Dornenbüsche",
+      "title": "Die Bergsenke",
       "chapter": "the-thicket",
       "body": "Die Siedlung liegt in einer Senke zwischen den Bergen und ist nur über einen schmalen Pfad erreichbar. Früher versperrte eine Mauer den Weg. Heute sind nur noch Teile davon erhalten: Viele Steine sind verrutscht, und die Tore sind längst verschwunden.\n\nDer verbliebene Zugang ist völlig überwuchert. Dichte Dornenbüsche versperren den Weg von einer Seite zur anderen. Es gibt keinen Weg hinein, außer durch sie hindurch.",
       "choices": [

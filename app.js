@@ -197,10 +197,6 @@ function renderIcon(name, className = "icon") {
   return img;
 }
 
-function itemNameFromLabel(label) {
-  return String(label).replace(/\s*\([^)]*\)\s*$/, "").trim();
-}
-
 function renderItemGlyph() {
   const glyph = document.createElement("span");
   glyph.className = "item-glyph";
@@ -213,8 +209,6 @@ function renderItemChip(label) {
   const chip = document.createElement("span");
   chip.className = "item-chip";
   chip.append(renderItemGlyph());
-  const icon = renderIcon(itemNameFromLabel(label), "icon icon-inline");
-  if (icon) chip.append(icon);
   chip.append(document.createTextNode(label));
   return chip;
 }
@@ -246,7 +240,8 @@ function escapeRegExp(value) {
 
 function appendPlainMarkedText(parent, text) {
   // :Icon Name: → inline icon (looked up in top-level `icons`)
-  const pattern = /:([^:\n[\]]+):/g;
+  // Keep names tight so prose colons like "Remember:" do not swallow later :time: markers.
+  const pattern = /:([A-Za-z0-9][A-Za-z0-9 _-]{0,48}):/g;
   let lastIndex = 0;
   for (const match of text.matchAll(pattern)) {
     const index = match.index ?? 0;

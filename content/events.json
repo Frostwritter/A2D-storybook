@@ -67,13 +67,14 @@
       "title": "The Open Wood",
       "chapter": "the-thicket",
       "body": "The wood here is a little easier going than the rest of the thicket, and far less tangled with thorn bushes. In the distance, a deer slips between the trees and is gone.",
+      "info": "Remember: Unless explicitly stated otherwise, you you can perform multiple exploration actions per POI, as long as you pay the :time: cost for each action.",
       "choices": [
         {
           "label": "Search the wood for usable timber",
           "note": "Spend 3 :time:",
           "body": "You spend some time looking for wood that will actually be of use. There is enough of it here, if you are willing to cut and carry.",
-          "info": "Materials can be used to upgrade your camp. In this demo, just treat them as quite valuable.",
-          "once": ["Gain 5 Material."]
+          "once": ["Gain 5 Material."],
+          "info": "Materials can be used to upgrade your camp. In this demo, just treat them as quite valuable."
         },
         {
           "label": "Go hunting",
@@ -81,8 +82,7 @@
           "body": "You follow the signs as best you can. It takes patience, but you finally bring the deer down.",
           "once": ["Gain items [Food (3)] [Pelt (4)]"]
         }
-      ],
-      "info": "You cannot rest while exploring a POI. To regain :Energy:, leave the POI, take a rest action, then explore it again."
+      ]
     },
     {
       "id": "thicket-3",
@@ -104,7 +104,7 @@
       "id": "thicket-4",
       "number": 5,
       "spoilerFree": true,
-      "title": "The Thorn-Bush Recess",
+      "title": "The Mountain Hollow",
       "chapter": "the-thicket",
       "body": "The settlement sits in a recess in the mountains, reachable only by a narrow path. They used to close that path with a wall, and the wall is still there in pieces, the stone slumped and the gates long gone.\n\nWhat remains of the approach is completely overgrown. Thick thorn bushes fill the path from side to side, and there is no way in except through them.",
       "choices": [

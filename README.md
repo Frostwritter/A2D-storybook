@@ -34,21 +34,23 @@ Gain [Torch (2)].
 Gain [Pelt (6)] and [Steak (7)].
 ```
 
-Everything inside `[...]` is rendered as an item chip (frame + optional icon). The icon is looked up by the name before the number, e.g. `Torch` from `[Torch (2)]`.
+Everything inside `[...]` is rendered as an item chip (frame, diamond glyph, name, and optional number). Items never use images.
 
-**Inline icons** (no chip) use colons with the same name lookup:
+**Inline icons** (no chip) use colons and look up files in the top-level `icons` map. They work in body text, notes, effects, conclusions, and info boxes:
 
 ```text
 Lose 1 :Energy:.
-Costs 2 :Energy: and a :Torch:.
+pay the :time: cost
 ```
 
-Top-level `icons` maps names to files under `content/`:
+Icon names must start with a letter or digit (so ordinary prose like `Remember:` is not treated as markup).
+
+Top-level `icons` maps names to files under `content/` (for `:Icon:` markup only, not item chips):
 
 ```json
 "icons": {
-  "Torch": "assets/icons/torch.svg",
-  "Energy": "assets/icons/energy_black.png"
+  "Energy": "assets/icons/energy_black.png",
+  "time": "assets/icons/hourglass_black.png"
 }
 ```
 
